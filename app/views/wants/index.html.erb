@@ -1,0 +1,27 @@
+<h1>Listing wants</h1>
+
+<div id="content">
+<table>
+
+<tbody>
+<% @wants.each do |want| %>
+  <tr>
+    <td class="item"><%= link_to h(want.name), want %></td>
+    <td><%=h want.price %></td>
+    <td><%=h want.purchase %></td>
+    <td><%= link_to 'Remove', want, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+
+<br />
+
+<div id="navigation" class="column">
+<%= link_to 'add...', new_want_path %>
+</div>
+
+<div id="total-items" class="column">Total Items: <%= @wants.size %></div>
+<div id="total_expenses" class="column">Total Expenses: <%= @total_expenses %></div>
+<span class="clear"></span>

@@ -1,0 +1,33 @@
+<p>
+  <b>Name:</b>
+  <%=h @want.name %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%=h @want.price %>
+</p>
+
+<p>
+  <b>Purchase:</b>
+  <%=h @want.purchase %>
+</p>
+
+<p>
+  <b>Due:</b>
+  <%=h @want.due %>
+</p>
+
+<p>
+  <b>Link:</b>
+  <%=h @want.link %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%=h @want.note %>
+</p>
+
+
+<%= link_to 'Edit', edit_want_path(@want) %> |
+<%= link_to 'Back', wants_path %>
