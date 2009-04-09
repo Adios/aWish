@@ -12,6 +12,10 @@
     <%= f.text_field :price %>
   </p>
   <p>
+    <%= f.label :priority %><br />
+    <%= f.select :priority, (0..3) %>
+  </p>
+  <p>
     <%= f.label :purchase %><br />
     <%= f.check_box :purchase %>
   </p>

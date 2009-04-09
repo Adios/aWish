@@ -4,7 +4,7 @@
 
 <ul>
 <% @wants.each do |want| %>
-  <li class="<%= want.purchase ? "item purchased" : "item" %>">
+  <li class="<%= generate_item_classes want %>">
     <%= link_to h(want.name), want, :class => "name" %>
     <div class="price"><%=h want.price %>
     <%= link_to image_tag("delete.png"), want, :confirm => 'Are you sure?', :method => :delete %>
@@ -21,6 +21,8 @@
 <%= link_to 'add...', new_want_path %>
 </div>
 
-<div id="total-items" class="column">Total Items: <%= @wants.size %></div>
-<div id="total_expenses" class="column">Total Expenses: <%= @total_expenses %></div>
+<div id="total-items" class="column">Items: <%= @wants.size %></div>
+<div id="total-expenses" class="column">Expenses: <%= @total_expenses %></div>
+<div id="tobuy-items" class="column">Items To Buy: <%= @tobuy_items %></div>
+<div id="total-budgets" class="column">Budgets: <%= @total_budgets %></div>
 <span class="clear"></span>

@@ -9,6 +9,11 @@
 </p>
 
 <p>
+  <b>Priority:</b>
+  <%=h @want.priority %>
+</p>
+
+<p>
   <b>Purchase:</b>
   <%= @want.purchase ? 'yes' : 'not yet' %>
 </p>
@@ -20,7 +25,7 @@
 
 <p>
   <b>Link:</b>
-  <%=h @want.link %>
+  <%= link_to h(@want.link), @want.link %>
 </p>
 
 <p>

@@ -2,8 +2,11 @@ class WantsController < ApplicationController
   # GET /wants
   # GET /wants.xml
   def index
-    @wants = Want.all :order => "purchase ASC"
+    @wants = Want.find_all_by_purchase(false, :order => "priority DESC") + Want.find_all_by_purchase(true, :order => "priority DESC")
+  
     @total_expenses = Want.total_expenses
+    @total_budgets = Want.total_budgets
+    @tobuy_items = Want.total_items_tobuy
 
     respond_to do |format|
       format.html # index.html.erb
