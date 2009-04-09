@@ -2,8 +2,8 @@ class WantsController < ApplicationController
   # GET /wants
   # GET /wants.xml
   def index
-    @wants = Want.all
-	@total_expenses = Want.total_expenses
+    @wants = Want.all :order => "purchase ASC"
+    @total_expenses = Want.total_expenses
 
     respond_to do |format|
       format.html # index.html.erb
