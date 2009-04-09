@@ -1,17 +1,58 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
-  price: 9.99
+  name: MacMini
+  price: 19900
   purchase: false
-  due: 2009-04-08
-  link: MyString
-  note: MyText
+  due: 2009-06-08
+  link: http://store.apple.com/tw-edu/configure/MB463TA/A?mco=NDE4NTQzMw
+  note: |
+    規格
+    2.0GHz Intel Core 2 Duo
+    1GB 1066MHz DDR3 SDRAM - 1x1GB
+    120GB Serial ATA 磁碟
+    SuperDrive 8x (DVD±R DL/DVD±RW/CD-RW)
+    User's Guide (Traditional Chinese)
 
 two:
-  name: MyString
-  price: 9.99
+  name: MacBook
+  price: 51900
   purchase: false
-  due: 2009-04-08
-  link: MyString
-  note: MyText
+  due: 2009-07-08
+  link: http://store.apple.com/tw-edu/configure/MB467TA/A?mco=MTkzOTA0OA
+  note: |
+    規格
+    2.4GHz Intel Core 2 Duo
+    2GB 1066MHz DDR3 SDRAM - 2x1GB
+    250GB Serial ATA Drive @ 5400 rpm
+    SuperDrive 8x (DVD±R DL/DVD±RW/CD-RW)
+    Keyboard & User's Guide
+
+three:
+  name: 牛皮滾邊立體剪裁低腰直筒牛仔褲
+  price: 2624
+  purchase: true
+  due: 2009-07-09
+  link: http://udn.monday.com.tw/gdsale/gdsale.asp?gdid=1291609
+  note: |
+    【Lee】隋棠最愛 - LWD歐洲工藝 牛皮滾邊立體剪裁低腰直筒牛仔褲
+     
+     LWD就是Lee Works of Denim，此系列每件牛仔褲都以歐洲百年工藝技術精采呈現!
+     側邊車線流線S型人體工學3D立體設計，讓雙腿活動更自如!
+     上寬下窄版型，呈現濃厚歐美街頭風!
+     
+four:
+  name: YADI-LCD 液晶鍵盤收納架
+  price: 700
+  purchase: false
+  due: 2008-05-10
+  link: http://buy.yahoo.com.tw/gdsale/gdsale.asp?gdid=969751
+  note: |
+    時尚精品.敗家必備
+    YADI-專業設計不同於一般桌上收納架.充滿時尚美感與透明質感.
+    這是鍵盤收納架中的精品，可以搭配各種LCD與各種桌面.不會有不協調的感覺.
+    可完全融入整體搭配.瞬間提升配備等級.桌面收納擺設整齊.工作效率提升.
+    彈性組合.空間搭配多變
+    可以多種組合搭配，選擇自己要的組合方式，調整適合的高度
+    (銀色腳柱為3.5cm，故可置入鍵盤高度3.5cm，延伸腳架可另作加購)
+
