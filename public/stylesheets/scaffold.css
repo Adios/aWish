@@ -1,5 +1,6 @@
 body { 
-  background-color: #fff; color: #333; 
+  color: #333;
+  background: #fff url(/images/sprite.png) repeat-x scroll 0px 0px;
 	padding: 2em;
 	padding-top: 1em;
 }
@@ -80,11 +81,26 @@ h1 {
 span.clear { clear: both }
 
 #content {
-	width: 80%;
+	width: 70%;
 	margin: 0 auto;
 }
 
-td.item { width: 80%; }
-td.item a { text-decoration: none; }
-td.item a:hover { color: #22792c; background-color: #cce8cf; }
-td.item:hover { background-color: #cce8cf; }
+ul, li {
+  padding-left: 0;
+  margin-left: 0;
+  list-style: none;
+}
+li.item { height: 22px; line-height: 22px; }
+li.item:hover { background-color: #cce8cf; color: #42974d; }
+li.item a.name {
+  float: left;
+}
+li.item a { text-decoration: none; }
+li.item a.name:hover { color: #42974d; background-color: #cce8cf; }
+li.purchased a.name:after { content: url(/images/ok.png); }
+li.purchased a.name { color: #777; }
+li.purchased { color: #777; }
+li.item div.price {
+  float: right;
+}
+li.item img { margin-bottom: -3px; }

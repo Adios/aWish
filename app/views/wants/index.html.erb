@@ -1,19 +1,18 @@
 <h1>Listing wants</h1>
 
 <div id="content">
-<table>
 
-<tbody>
+<ul>
 <% @wants.each do |want| %>
-  <tr>
-    <td class="item"><%= link_to h(want.name), want %></td>
-    <td><%=h want.price %></td>
-    <td><%=h want.purchase %></td>
-    <td><%= link_to 'Remove', want, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <li class="<%= want.purchase ? "item purchased" : "item" %>">
+    <%= link_to h(want.name), want, :class => "name" %>
+    <div class="price"><%=h want.price %>
+    <%= link_to image_tag("delete.png"), want, :confirm => 'Are you sure?', :method => :delete %>
+    </div>
+  </li>
 <% end %>
-</tbody>
-</table>
+</ul>
+
 </div>
 
 <br />

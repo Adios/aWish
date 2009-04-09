@@ -10,7 +10,7 @@
 
 <p>
   <b>Purchase:</b>
-  <%=h @want.purchase %>
+  <%= @want.purchase ? 'yes' : 'not yet' %>
 </p>
 
 <p>
@@ -29,5 +29,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_want_path(@want) %> |
+<%= link_to 'Modify', edit_want_path(@want) %> |
 <%= link_to 'Back', wants_path %>
