@@ -1,19 +1,18 @@
 module WantsHelper
   def generate_item_classes data
-    classes = "item"
-  
+    c = Array.new
     if data.purchase
-      classes += " purchased" 
-      return classes
+      c << "purchased" 
+      return c.join(" ")
     end
     
     case data.priority
-    when 0 then return classes;
-    when 1 then classes += " little"
-    when 2 then classes += " medium"
-    when 3 then classes += " large"
+    when 0 then return c.join(" ")
+    when 1 then c << "non-urgent"
+    when 2 then c << "urgent"
+    when 3 then c << "emergent"
     end
     
-    classes
+    c.join(" ")
   end
 end

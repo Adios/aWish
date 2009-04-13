@@ -98,22 +98,17 @@ ul, li {
   margin-left: 0;
   list-style: none;
 }
-li.item { height: 22px; line-height: 22px; }
-li.item:hover { background-color: #cce8cf; color: #42974d; }
-li.item a.name {
-  float: left;
-}
-li.item a { text-decoration: none; }
-li.item a.name:hover { color: #42974d; background-color: #cce8cf; }
-li.purchased a.name:after { content: url(/images/ok.png); }
-li.purchased a.name { color: #777; }
-li.purchased { color: #777; }
-li.item div.price {
-  float: right;
-}
-li.item img { margin-bottom: -3px; }
 
-li.large { background-color: rgb(214, 252, 217); }
-li.medium { background-color: rgb(224, 255, 227); }
-li.little { background-color: rgb(234, 255, 237); }
+img { border: 0px; }
+
+ul#desire li { height: 22px; line-height: 22px; }
+ul#desire li.emergent { background-color: #d6fcd9; }
+ul#desire li.urgent { background-color: #e0ffe3; }
+ul#desire li.non-urgent { background-color: #eaffed; }
+ul#desire li:hover { background-color: #cce8cf; color: #42974d; }
+ul#desire div.price { float: right; }
+ul#desire li img { margin-bottom: -3px; }
+
+ul#desire li.purchased { color: #777; }
+
 
