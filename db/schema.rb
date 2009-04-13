@@ -9,12 +9,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 2) do
+ActiveRecord::Schema.define(:version => 3) do
 
   create_table "wants", :force => true do |t|
-    t.string   "name"
+    t.string   "name",                          :null => false
     t.decimal  "price"
-    t.boolean  "purchase"
+    t.boolean  "purchase",   :default => false
     t.date     "due"
     t.string   "link"
     t.text     "note"

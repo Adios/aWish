@@ -1,6 +1,7 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 NotyetPriority3:
+  id: 1
   name: MacMini
   priority: 3
   price: 19900
@@ -16,6 +17,7 @@ NotyetPriority3:
     User's Guide (Traditional Chinese)
 
 NotyetPriority2:
+  id: 2
   priority: 2
   name: MacBook
   price: 51900
@@ -31,6 +33,7 @@ NotyetPriority2:
     Keyboard & User's Guide
 
 NotyetPriority1:
+  id: 3
   priority: 1
   name: 牛皮滾邊立體剪裁低腰直筒牛仔褲
   price: 2624
@@ -45,6 +48,7 @@ NotyetPriority1:
      上寬下窄版型，呈現濃厚歐美街頭風!
      
 NotyetPriority0:
+  id: 4
   priority: 0
   name: YADI-LCD 液晶鍵盤收納架
   price: 700
@@ -61,6 +65,7 @@ NotyetPriority0:
     (銀色腳柱為3.5cm，故可置入鍵盤高度3.5cm，延伸腳架可另作加購)
 
 NotyetPriority02:
+  id: 5
   priority: 0
   name: YADI-LCD 液晶鍵盤收納架2
   price: 700
@@ -77,6 +82,7 @@ NotyetPriority02:
     (銀色腳柱為3.5cm，故可置入鍵盤高度3.5cm，延伸腳架可另作加購)
 
 YesPriority3:
+  id: 6
   priority: 3
   name: 變形金剛 Blu-ray Disc 中文版1
   price: 1100
@@ -100,6 +106,7 @@ YesPriority3:
     歡迎自取　但僅限捷運公館站呦～
     
 NotYetPriority3:
+  id: 7
   priority: 3
   name: 變形金剛 Blu-ray Disc 中文版2
   price: 1100
@@ -123,6 +130,7 @@ NotYetPriority3:
     歡迎自取　但僅限捷運公館站呦～
 
 YesPriority1:
+  id: 8
   priority: 1
   name: 變形金剛 Blu-ray Disc 中文版3
   price: 1100
@@ -146,6 +154,7 @@ YesPriority1:
     歡迎自取　但僅限捷運公館站呦～
 
 YesPriority0:
+  id: 9
   priority: 0
   name: 變形金剛 Blu-ray Disc 中文版4
   price: 1100
