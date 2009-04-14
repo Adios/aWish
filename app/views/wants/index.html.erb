@@ -5,6 +5,14 @@
 <div id="status"></div>
 
 <ul id="desire">
+  <li>
+    <% remote_form_for @want,
+      :update => 'status',
+      :complete => %((new DesireList($j('ul#desire'))).insert($j('input#want_name').val()); $j('ul#desire > li:first').hide();) do |f| %>
+      <%= f.text_field :name %>
+    <% end %>
+  </li>
+
 <% @wants.each do |want| %>
   <li class="<%= generate_item_classes want %>">
     <%= h(want.name) %>
@@ -20,7 +28,7 @@
 <br />
 
 <div id="navigation" class="column">
-<%= link_to 'add...', new_want_path %>
+<%= link_to 'add...', '#', :id => "create-button" %>
 </div>
 
 <div id="total-items" class="column">Items: <%= @wants.size %></div>
