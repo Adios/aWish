@@ -24,7 +24,11 @@ $j(function() {
    
    $j('a#create-button').click(function() {
                                $j('ul#desire > li:first').show();
-                               $j('input#want_name').val('');
+                               $j('input#want_name').val('').focus();
                                return false;
                                });
+   
+   $j('input#want_name').blur(function() {
+                              $j('li > form').get(0).onsubmit();
+                              });
 })
