@@ -1,34 +1,43 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
-var $j = jQuery.noConflict();
-
-function DesireList (jquery) {
-  this.list = jquery.get(0);
-}
-
-DesireList.prototype.insert = function(name) {
-  var li = document.createElement('li');
-  li.appendChild(document.createTextNode(name));
+$(function() {
+  $('#desire-list li')
+    .eq(0)
+      .hide()
+    .end()
+      .not(':first').hover(
+        function() {
+          $(this).addClass('selected');
+        },
+        function() {
+          $(this).removeClass('selected');
+      });
   
-  var price = document.createElement('div');
-  $j(price).addClass('price');
-  li.appendChild(price);
+  $('#new-button')
+    .click(function() {
+      $('#desire-list li:first').show().children().focus();
+    });
+      
+  $('#want_name')
+    .blur(function() {
+      if ($(this).val() == '') {
+        $(this).parent().hide();
+      } else {
+        $.post("/wants", $(this).parent().children().serialize(), function(data) {
+          $('#status').html(data);
+            var value = $('#want_name').val();
+            $('#want_name')
+              .parent()
+                .insertDesireList()
+              .end()
+                .val('').parent().hide();
+        }, 'text');
+      }
+    })
+    .keypress(function(e) {
+      (e.which == 13) && $(this).blur();
+    });
   
-  this.list.insertBefore(li, $j('ul#desire > li:not(:first)').get(0));
-  return this;
-}
-
-$j(function() {
-   $j('ul#desire > li:first').hide();
-   
-   $j('a#create-button').click(function() {
-                               $j('ul#desire > li:first').show();
-                               $j('input#want_name').val('').focus();
-                               return false;
-                               });
-   
-   $j('input#want_name').blur(function() {
-                              $j('li > form').get(0).onsubmit();
-                              });
-})
+                            
+});
