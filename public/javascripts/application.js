@@ -25,8 +25,13 @@ $(function() {
         $(this).parent().hide();
       } else {
         $.post("/wants", $(this).parent().children().serialize(), function(data) {
-        $('#status').html(data);
-        $('#want_name').val('').parent().hide();
+          $('#status').html(data);
+            var value = $('#want_name').val();
+            $('#want_name')
+              .parent()
+                .insertDesireList()
+              .end()
+                .val('').parent().hide();
         }, 'text');
       }
     })
@@ -36,3 +41,4 @@ $(function() {
   
                             
 });
+
