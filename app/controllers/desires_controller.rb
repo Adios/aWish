@@ -1,8 +1,9 @@
 class DesiresController < ApplicationController
   # GET /desires
-  # GET /desires.xml
-  def index; end
-
+  def index
+    all
+  end
+  
   # GET /desires/1
   # GET /desires/1.xml
   def show
@@ -12,11 +13,6 @@ class DesiresController < ApplicationController
       format.html # show.html.erb
       format.xml  { render :xml => @desire }
     end
-  end
-
-  # GET /desires/1/edit
-  def edit
-    @desire = Desire.find(params[:id])
   end
 
   # POST /desires
@@ -64,5 +60,10 @@ class DesiresController < ApplicationController
       format.html { redirect_to(desires_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  private
+  
+  def all
   end
 end
