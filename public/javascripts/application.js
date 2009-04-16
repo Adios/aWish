@@ -19,15 +19,15 @@ $(function() {
       $('#desire-list li:first').show().children().focus();
     });
       
-  $('#want_name')
+  $('#desire_name')
     .blur(function() {
       if ($(this).val() == '') {
         $(this).parent().hide();
       } else {
-        $.post("/wants", $(this).parent().children().serialize(), function(data) {
+        $.post("/desires", $(this).parent().children().serialize(), function(data) {
           $('#status').html(data);
-            var value = $('#want_name').val();
-            $('#want_name')
+            var value = $('#desire_name').val();
+            $('#desire_name')
               .parent()
                 .insertDesireList()
               .end()

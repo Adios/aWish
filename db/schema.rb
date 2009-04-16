@@ -11,7 +11,7 @@
 
 ActiveRecord::Schema.define(:version => 3) do
 
-  create_table "wants", :force => true do |t|
+  create_table "desires", :force => true do |t|
     t.string   "name",                          :null => false
     t.decimal  "price"
     t.boolean  "purchase",   :default => false

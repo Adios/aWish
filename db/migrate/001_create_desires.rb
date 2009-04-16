@@ -1,6 +1,6 @@
-class CreateWants < ActiveRecord::Migration
+class CreateDesires < ActiveRecord::Migration
   def self.up
-    create_table :wants do |t|
+    create_table :desires do |t|
       t.string :name
       t.decimal :price
       t.boolean :purchase
@@ -13,6 +13,6 @@ class CreateWants < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :wants
+    drop_table :desires
   end
 end

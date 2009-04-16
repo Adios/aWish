@@ -1,4 +1,4 @@
-module WantsHelper
+module DesiresHelper
   def generate_item_classes data
     c = Array.new
     if data.purchase

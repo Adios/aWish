@@ -1,4 +1,4 @@
-<h1>Listing wants</h1>
+<h1>Listing desires</h1>
 
 <div id="content">
 
@@ -7,13 +7,13 @@
 <ul id="desire-list">
   <li class="input">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <%= text_field_tag 'want[name]' %>
+    <%= text_field_tag 'desire[name]' %>
   </li>
-<% @wants.each do |want| %>
-  <li class="<%= generate_item_classes want %>">
-    <%= h(want.name) %>
-    <div class="price"><%=h want.price %>
-    <%= link_to image_tag("delete.png"), want, :confirm => 'Are you sure?', :method => :delete %>
+<% @desires.each do |desire| %>
+  <li class="<%= generate_item_classes desire %>">
+    <%= h(desire.name) %>
+    <div class="price"><%=h desire.price %>
+    <%= link_to image_tag("delete.png"), desire, :confirm => 'Are you sure?', :method => :delete %>
     </div>
   </li>
 <% end %>
@@ -27,7 +27,7 @@
 <%= link_to 'add...', '#', :id => "new-button" %>
 </div>
 
-<div id="total-items" class="column">Items: <%= @wants.size %></div>
+<div id="total-items" class="column">Items: <%= @desires.size %></div>
 <div id="total-expenses" class="column">Expenses: <%= @total_expenses %></div>
 <div id="tobuy-items" class="column">Items To Buy: <%= @tobuy_items %></div>
 <div id="total-budgets" class="column">Budgets: <%= @total_budgets %></div>
