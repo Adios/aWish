@@ -4,7 +4,11 @@
 
 <div id="status"></div>
 
-<ul id="desire">
+<ul id="desire-list">
+  <li class="input">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= text_field_tag 'want[name]' %>
+  </li>
 <% @wants.each do |want| %>
   <li class="<%= generate_item_classes want %>">
     <%= h(want.name) %>
@@ -20,7 +24,7 @@
 <br />
 
 <div id="navigation" class="column">
-<%= link_to 'add...', new_want_path %>
+<%= link_to 'add...', '#', :id => "new-button" %>
 </div>
 
 <div id="total-items" class="column">Items: <%= @wants.size %></div>

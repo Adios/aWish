@@ -101,14 +101,23 @@ ul, li {
 
 img { border: 0px; }
 
-ul#desire li { height: 22px; line-height: 22px; }
-ul#desire li.emergent { background-color: #d6fcd9; }
-ul#desire li.urgent { background-color: #e0ffe3; }
-ul#desire li.non-urgent { background-color: #eaffed; }
-ul#desire li:hover { background-color: #cce8cf; color: #42974d; }
-ul#desire div.price { float: right; }
-ul#desire li img { margin-bottom: -3px; }
+#desire-list li { height: 22px; line-height: 22px; }
+#desire-list li.emergent { background-color: #d6fcd9; }
+#desire-list li.urgent { background-color: #e0ffe3; }
+#desire-list li.non-urgent { background-color: #eaffed; }
+#desire-list li.selected { background-color: #cce8cf; color: #42974d; }
+#desire-list div.price { float: right; }
+#desire-list li img { margin-bottom: -3px; }
 
-ul#desire li.purchased { color: #777; }
+#desire-list li.purchased { color: #777; }
+#desire-list li input { 
+  width: 100%; 
+  border: 1px solid #cce8cf; 
+  margin: 0;
+  padding: 0;
+  height: 22px;
+  line-height: 22px;
+  font-size: 20px;
+}
 
-
+.input { display: none; }

@@ -3,7 +3,7 @@ class WantsController < ApplicationController
   # GET /wants.xml
   def index
     @wants = Want.find_all_by_purchase(false, :order => "priority DESC") + Want.find_all_by_purchase(true, :order => "priority DESC")
-  
+
     @total_expenses = Want.total_expenses
     @total_budgets = Want.total_budgets
     @tobuy_items = Want.total_items_tobuy
@@ -25,17 +25,6 @@ class WantsController < ApplicationController
     end
   end
 
-  # GET /wants/new
-  # GET /wants/new.xml
-  def new
-    @want = Want.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @want }
-    end
-  end
-
   # GET /wants/1/edit
   def edit
     @want = Want.find(params[:id])
@@ -48,10 +37,11 @@ class WantsController < ApplicationController
 
     respond_to do |format|
       if @want.save
-        flash[:notice] = 'Want was successfully created.'
+        format.text { render :text => 'done.' }
         format.html { redirect_to(@want) }
         format.xml  { render :xml => @want, :status => :created, :location => @want }
       else
+        fotmat.text { render :text => 'failed.' }
         format.html { render :action => "new" }
         format.xml  { render :xml => @want.errors, :status => :unprocessable_entity }
       end
