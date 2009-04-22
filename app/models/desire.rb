@@ -1,4 +1,6 @@
 class Desire < ActiveRecord::Base
+  self.include_root_in_json = false
+
 	def self.total_expenses
 		Desire.sum(:price) || BigDecimal("0.0")
 	end

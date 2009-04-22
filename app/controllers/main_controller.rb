@@ -1,5 +1,6 @@
 class MainController < ApplicationController
   def index
+    @desire = Desire.new
     @desires = Desire.find_all_by_purchase(false, :order => "priority DESC") + Desire.find_all_by_purchase(true, :order => "priority DESC")
 
     @total_expenses = Desire.total_expenses

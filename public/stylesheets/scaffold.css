@@ -18,7 +18,6 @@ pre {
 }
 
 a { color: #000; }
-a:hover { color: #fff; background-color:#000; }
 
 h1 { 
 	background-color: #cce8cf; 
@@ -88,8 +87,17 @@ h1 {
 
 span.clear { clear: both; display: block; }
 
+#status-area {
+	width: 200px;
+	margin: 0 auto 10px auto;
+	height: 30px;
+	line-height: 30px; 
+	padding-left: 40px;
+	border: 3px solid #fff;
+}
+
 #content {
-	width: 70%;
+	width: 90%;
 	margin: 0 auto;
 }
 
@@ -101,23 +109,45 @@ ul, li {
 
 img { border: 0px; }
 
-#desire-list li { height: 22px; line-height: 22px; }
+#desire-list {
+  border-top: 1px solid #cce8cf;
+  float: left;
+  width: 60%;
+}
+
+#desire-list li { 
+  height: 22px; 
+  line-height: 22px;
+  border: 1px solid #cce8cf;
+  border-top: none;
+  padding: 2px 15px;
+}
 #desire-list li.emergent { background-color: #d6fcd9; }
 #desire-list li.urgent { background-color: #e0ffe3; }
 #desire-list li.non-urgent { background-color: #eaffed; }
 #desire-list li.selected { background-color: #cce8cf; color: #42974d; }
-#desire-list div.price { float: right; }
-#desire-list li img { margin-bottom: -3px; }
-
+#desire-list li a { float: left; }
+#desire-list span.price { float: right; font-size: 80%;  }
 #desire-list li.purchased { color: #777; }
 #desire-list li input { 
-  width: 100%; 
-  border: 1px solid #cce8cf; 
+  border: none;
   margin: 0;
   padding: 0;
   height: 22px;
   line-height: 22px;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .input { display: none; }
+
+#desire-details {
+  border: 1px solid #cce8cf;
+  float: right;
+  width: 33%;
+  padding: 20px;
+}
+#desire-details li input { border: 1px solid #fff; }
+#desire-details li input.focused { border: 1px solid #cce8cf; }
+#desire-details li input.name { font-weight: bold; margin-bottom: 7px; }
+
+

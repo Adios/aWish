@@ -22,11 +22,12 @@ class DesiresController < ApplicationController
 
     respond_to do |format|
       if @desire.save
-        format.text { render :text => 'done.' }
+	    flash[:notice] = 'Desire was successfully created.'
+        format.json { render :json => { 'path' => desire_path(@desire), 'status' => 1, 'message' => 'created successfully.' } }
         format.html { redirect_to(@desire) }
         format.xml  { render :xml => @desire, :status => :created, :location => @desire }
       else
-        fotmat.text { render :text => 'failed.' }
+        fotmat.json { render :json => { 'status' => 0, 'message' => 'created failed.' } }
         format.html { render :action => "new" }
         format.xml  { render :xml => @desire.errors, :status => :unprocessable_entity }
       end
@@ -41,9 +42,11 @@ class DesiresController < ApplicationController
     respond_to do |format|
       if @desire.update_attributes(params[:desire])
         flash[:notice] = 'Desire was successfully updated.'
+	    format.json { render :json => { 'status' => 1, 'message' => 'updated successfully.' } }
         format.html { redirect_to(@desire) }
         format.xml  { head :ok }
       else
+	    format.json { render :json => { 'status' => 0, 'message' => 'updated failed.' } }
         format.html { render :action => "edit" }
         format.xml  { render :xml => @desire.errors, :status => :unprocessable_entity }
       end
@@ -65,5 +68,15 @@ class DesiresController < ApplicationController
   private
   
   def all
+    @desires = Desire.all
+    
+    response = Array.new
+    @desires.each do |d|
+      response[d.id] = d
+    end
+  
+    respond_to do |format|
+      format.json { render :json => response.to_json(:except => [ "note" ]) }
+    end
   end
 end

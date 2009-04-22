@@ -2,23 +2,24 @@
 
 <div id="content">
 
-<div id="status"></div>
+<div id="status-area"></div>
 
 <ul id="desire-list">
   <li class="input">
-    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <%= text_field_tag 'desire[name]' %>
+  <% form_for @desire do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit 'create' %>
+  <% end %>
   </li>
-<% @desires.each do |desire| %>
-  <li class="<%= generate_item_classes desire %>">
-    <%= h(desire.name) %>
-    <div class="price"><%=h desire.price %>
-    <%= link_to image_tag("delete.png"), desire, :confirm => 'Are you sure?', :method => :delete %>
-    </div>
-  </li>
-<% end %>
+  <%= render :partial => 'desire', :collection => @desires %>
 </ul>
 
+<ul id="desire-details">
+  <%= hidden_field_tag '_method', 'put' %>
+  <%= render :partial => 'attribute', :collection => @desire.attributes.keys %>
+</ul>
+
+<span class="clear"></span>
 </div>
 
 <br />
