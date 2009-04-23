@@ -3,9 +3,14 @@ class MainController < ApplicationController
     @desire = Desire.new
     @desires = Desire.find_all_by_purchase(false, :order => "priority DESC") + Desire.find_all_by_purchase(true, :order => "priority DESC")
 
-    @total_expenses = Desire.total_expenses
-    @total_budgets = Desire.total_budgets
-    @tobuy_items = Desire.total_items_tobuy
+	@attr = Desire.new.attributes.keys
+	
+	@meta = [
+	  [ 'Size', @desires.size ],
+	  [ 'Expenses', Desire.expenses ], 
+	  [ 'Budgets', Desire.budgets ],
+	  [ 'Un-achieved', Desire.unachieved ]
+	]
 
     respond_to do |format|
       format.html # index.html.erb

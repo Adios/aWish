@@ -23,6 +23,9 @@ jQuery.fn.insertDesireList = function(path) {
 jQuery.fn.hoverOverDesireList = function() {
 	this.hover(
 		function() {
+			jQuery('#desire-meta').hide();
+			jQuery('#desire-attribute').show();
+	
 			jQuery(this).addClass('selected');
 			
 			if (typeof desires == 'object') {

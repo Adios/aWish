@@ -15,8 +15,13 @@
 </ul>
 
 <ul id="desire-details">
-  <%= hidden_field_tag '_method', 'put' %>
-  <%= render :partial => 'attribute', :collection => @desire.attributes.keys %>
+  <div id="desire-meta">
+	<%= render :partial => 'meta', :collection =>  @meta %>
+  </div>
+  <div id="desire-attribute">
+	<%= hidden_field_tag '_method', 'put' %>
+	<%= render :partial => 'attribute', :collection => @attr %>
+  </div>
 </ul>
 
 <span class="clear"></span>
@@ -28,8 +33,4 @@
 <%= link_to 'add...', '#', :id => "new-button" %>
 </div>
 
-<div id="total-items" class="column">Items: <%= @desires.size %></div>
-<div id="total-expenses" class="column">Expenses: <%= @total_expenses %></div>
-<div id="tobuy-items" class="column">Items To Buy: <%= @tobuy_items %></div>
-<div id="total-budgets" class="column">Budgets: <%= @total_budgets %></div>
 <span class="clear"></span>
