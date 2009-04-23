@@ -1,2 +1,82 @@
-Use this README file to introduce your application and point to useful places in the API for learning more.
-Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+=aBuy
+aBuy is a web application to manage items what you want to buy and what you've bought, or <b>a wish-list management system</b>.
+
+
+=Features 
+* rememberthemilk.com[www.rememberthemilk.com] -like UI look.
+* basic item management operations, eg: create, delete, update, read.
+
+
+=ToDo
+<b>tracking prices</b>:: track the expected price a user set, notify the user as the price of item being down to meet expected price.<em>(main feature)</em> 
+<b>group purchase</b>:: when multiple user want to have the same product, they may launch a group purchase for that product.<em>(main feature)</em>
+<b>price comparison</b>:: a user can understand if he or she may cost more than others that have bought the item already.
+<b>budget management</b>:: the system may tell you a plan to saving your money in order to fit the budgets of the wanted items.<em>(main feature)</em>
+<b>hot product</b>:: the item many people want to buy.
+<b>suggestion</b>:: complete the full name of products when typing.
+<b>auto filling</b>:: given a link to the product, system will automatically fill up the item info by analysis the link, so the user may not have to type themselves.
+<b>similar people</b>:: people whose desire list are almost the same.
+===
+=Prototype
+the screenshot of current developing application is following:
+
+Original[http://picasaweb.google.com/lh/photo/_xL_fRUmwy2kcLOCAdiIgQ?feat=directlink]
+
+http://lh3.ggpht.com/_RrEBYXh3BJQ/Se_lStNNR_I/AAAAAAAABeI/88CAlayIA68/s800/screenshot.png
+
+=Architecture
+* Currently, the app renders index.html and <b>handle any request from index</b> by using MainController.
+* Desire is the model/backend of the desire list, currently only one table implmented.
+* DesiresController mainly <b>provides the web services</b> for creation, deletion, updating and listing.
+
+here is the class diagram for controllers:
+
+http://lh6.ggpht.com/_RrEBYXh3BJQ/Se_4O6_XzZI/AAAAAAAABeQ/SAqHozWlfVc/s400/controller.png
+
+and here is the model diagram:
+
+http://lh6.ggpht.com/_RrEBYXh3BJQ/Se_4PAbqGtI/AAAAAAAABeY/tU-hAwBuwmQ/s400/model.png
+
+=Provided API
+The application is <b>RESTful</b>. It provides the basic operation on <b>Desire</b>, such as 
+* DesiresController.create
+* DesiresController.destroy
+* DesiresController.index
+* DesiresController.show
+* DesiresController.update
+
+eg: (the following examples ignore the <b>authenticaty_tokens</b>)
+
+===for creation:
+
+<tt>POST /desires</tt>
+
+with the post data:
+
+<tt>desire[name]=macbook</tt>
+
+===for updating:
+
+<tt>POST /desires/1</tt>
+
+with the post data:
+
+<tt>_method=put&desire[price]=100000</tt>
+
+===for show one item:
+
+<tt>GET /desires/2</tt>
+
+===javascript (jquery) example:
+
+The following code will retrive all desires and log to the debug console of js:
+
+<tt>$.get('/desires', function(data) { console.log(data); }, 'json')</tt>
+
+The following code will create a new desire named <b>macbook</b>:
+
+<tt>$.post('/desires', 'desire[name]=macbook', function(data) { console.log(data.message); }, 'json') </tt>
+
+Because the accepted type is 'json', the application will encapsulate the response with the following json format:
+
+<tt>{ message: 'message for the operation', status: 1 or 0 ,.... }</tt>
