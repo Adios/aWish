@@ -12,6 +12,11 @@ var window = this,
 	};
 	
 Desire.prototype = Desire.fn = {
+	show: function(data) {
+		$('ul.details input[type!=hidden]').each(function(index, elem) {
+			$(elem).val( data[elem.className] ? data[elem.className] : '');
+		});
+	},
 	over: function(o) {
 		var d = window.desires, sync = DesireList.fn.sync;
 		
@@ -21,11 +26,7 @@ Desire.prototype = Desire.fn = {
 		$(this).addClass('hovering');
 		DesireList.fn.hovering = $(this).find('a').attr('href').split('/').pop();
 	 
-		(DesireList.fn.selected === undefined) && 
-			(sync) && 
-			(function(data) { $('ul.details input[type!=hidden]').each(function(index, elem) { 
-			$(elem).val( data[elem.className] ? data[elem.className] : '' ); 
-		})})(d[DesireList.fn.hovering]);
+		(DesireList.fn.selected === undefined) && (sync) && (Desire.prototype.show(d[DesireList.fn.hovering])); 
 	},
 	out: function() {
 		$(this).removeClass('hovering');
@@ -52,6 +53,7 @@ Desire.prototype = Desire.fn = {
 			$('#desire-attribute').css({ 'border-color': '#fff' })
 		} else {
 			$('ul.desires li').current('/desires/' + s).removeClass('selected');
+			Desire.fn.show(desires[id]);
 			DesireList.fn.selected = id;
 		};
 			
