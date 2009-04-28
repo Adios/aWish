@@ -4,27 +4,30 @@
 
 <div id="status-area"></div>
 
-<ul id="desire-list">
-  <li class="input">
-  <% form_for @desire do |f| %>
-    <%= f.text_field :name %>
-    <%= f.submit 'create' %>
-  <% end %>
-  </li>
-  <%= render :partial => 'desire', :collection => @desires %>
-</ul>
+<div id="desire-list">
+  <ul class="desires">
+    <li class="input">
+    <% form_for @desire do |f| %>
+      <%= f.text_field :name %>
+      <%= f.submit 'create' %>
+    <% end %>
+    </li>
+    <%= render :partial => 'desire', :collection => @desires %>
+  </ul>
 
-<ul id="desire-details">
-  <div id="desire-meta">
-	<%= render :partial => 'meta', :collection =>  @meta %>
-  </div>
-  <div id="desire-attribute">
-	<%= hidden_field_tag '_method', 'put' %>
-	<%= render :partial => 'attribute', :collection => @attr %>
-  </div>
-</ul>
+  <ul class="details">
+    <div id="desire-meta">
+      <%= render :partial => 'meta', :collection =>  @meta %>
+    </div>
+    <div id="desire-attribute">
+	  <%= hidden_field_tag '_method', 'put' %>
+	  <%= render :partial => 'attribute', :collection => @attr %>
+    </div>
+  </ul>
+  
+  <span class="clear"></span>
+</div>
 
-<span class="clear"></span>
 </div>
 
 <br />
