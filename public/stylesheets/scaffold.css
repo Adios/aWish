@@ -127,7 +127,7 @@ ul.desires li.emergent { background-color: #d6fcd9; }
 ul.desires li.urgent { background-color: #e0ffe3; }
 ul.desires li.non-urgent { background-color: #eaffed; }
 ul.desires li.hovering { background-color: #cce8cf; color: #42974d; }
-ul.desires li.selected { background-color: #000; color: #42974d; }
+ul.desires li.selected { background-color: #ffefe0; color: #42974d; }
 ul.desires li a { float: left; }
 ul.desires span.price { float: right; font-size: 80%;  }
 ul.desires li.purchased { color: #777; }
@@ -148,14 +148,14 @@ ul.details {
   float: right;
   width: 33%;
   padding: 20px;
+  background-color: #fff;
 }
 
-#desire-meta {  }
-
-#desire-attribute { display: none; }
+#desire-meta {  background-color: #fff; border: 1px solid white; }
+#desire-attribute { display: none; background-color: #fff; border: 1px solid white; }
 
 ul.details li input { border: 1px solid #fff; }
 ul.details li input.focused { border: 1px inset #cce8cf; }
-ul.details li input.name { font-weight: bold; margin-bottom: 7px; width: 100%; font-size: 110%;}
+ul.details li input.name { font-weight: bold; margin-bottom: 7px; width: 95%; font-size: 110%;}
 
 

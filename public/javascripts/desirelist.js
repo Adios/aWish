@@ -37,13 +37,23 @@ Desire.prototype = Desire.fn = {
 		}
 	},
 	click: function() {
-		var d = window.desires, sync = DesireList.fn.sync;
+		var d = window.desires, sync = DesireList.fn.sync, s = DesireList.fn.selected,
+			id = $(this).find('a').attr('href').split('/').pop();
 
 		$(this).toggleClass('selected');
 		
-		DesireList.fn.selected = (DesireList.fn.selected === undefined) 
-			? $(this).find('a').attr('href').split('/').pop()
-			: undefined;
+		if (s === undefined) {
+			DesireList.fn.selected = id;
+			$('ul.details').css({ 'background-color': '#ffefe0' })
+			$('#desire-attribute').css({ 'border-color': '#cce8cf' })
+		} else if (s == id) {
+			DesireList.fn.selected = undefined;
+			$('ul.details').css({ 'background-color': '#fff' })
+			$('#desire-attribute').css({ 'border-color': '#fff' })
+		} else {
+			$('ul.desires li').current('/desires/' + s).removeClass('selected');
+			DesireList.fn.selected = id;
+		};
 			
 	},
 };
@@ -150,8 +160,8 @@ DesireList.prototype = DesireList.fn = {
 								.removeClass('loading');
 						}
 					);
-					$(this).removeClass('focused');
 				};
+				$(this).removeClass('focused');
 				
 				l.selected = undefined;
 			});
