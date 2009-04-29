@@ -1,0 +1,64 @@
+body {
+	color: #42974d;
+	font-family: Helvetica, verdana, sans-serif;
+	background: #fff url(/images/bg.png) repeat-x scroll 0px center;
+}
+ul, li { 
+	list-style: none; 
+}
+h1 {
+	color: #42974d;
+	font-family: Impact, Copperplate, fantasy;
+	font-size: 400%;
+	height: 60px;
+	line-height: 60px;
+	z-index: 5;
+	position: absolute;
+	top: 0;
+	left: 20px;
+}
+h2 {
+	color: #cce8cf;
+	font-size: 110%;
+	font-stretch: wider;
+	font-family: Impact, Copperplate, fantasy;
+	float: left;
+	line-height: 30px;
+	height: 30px;
+	opacity: 0.6;
+	z-index: 6;
+}
+#header ul, #footer ul { 
+	background: #fff url(/images/hr.png) repeat-x scroll 0px center;
+	height: 30px;
+	padding: 0 20px;
+}
+#header li, #footer li { 
+	display: inline; 
+	line-height: 30px; 
+}
+#header {
+	position: relative;
+}
+#header li {
+	float: right;
+	padding: 0 4px;
+}
+#footer li {
+	border-right: 1px solid #42974d;
+	font-size: 80%;
+	padding: 0 4px;
+}
+#user_login, #user_password {
+	font-family: Times, serif;
+	width: 100px;
+	border: 1px inset #cce8cf;
+	border-right: 3px double #cce8cf;
+	border-bottom: 3px double #cce8cf;
+}
+#user_submit {
+	padding: 1px;
+	border: 1px outset #cce8cf;
+	background-color: #cce8cf;
+	color: #42974d;
+}
