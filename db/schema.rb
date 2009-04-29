@@ -9,18 +9,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 3) do
-
-  create_table "desires", :force => true do |t|
-    t.string   "name",                          :null => false
-    t.decimal  "price"
-    t.boolean  "purchase",   :default => false
-    t.date     "due"
-    t.string   "link"
-    t.text     "note"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "priority",   :default => 0
-  end
+ActiveRecord::Schema.define(:version => 0) do
 
 end
