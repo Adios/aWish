@@ -1,7 +1,9 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+adios:
+  login: adios
+  email: adiosf6f@gmail.com
+  hashed_password: <%= Digest::MD5.hexdigest('test') %>
 
-# one:
-#   column: value
-#
-# two:
-#   column: value
+wancw:
+  login: wancw
+  email: wancw.wang@gmail.com
+  hashed_password: <%= Digest::MD5.hexdigest('testtesttest') %>
