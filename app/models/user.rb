@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   validates_length_of :login, :within => 3..32
   validates_length_of :password, :within => 5..64
   validates_presence_of :login, :email, :password
-  validates_uniqueness_of :login, :email
+  validates_uniqueness_of :login, :email, :case_sensitive => false
   validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :message => "Invalid email"  
   
   attr_accessor :password

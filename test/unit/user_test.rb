@@ -77,9 +77,17 @@ class UserTest < ActiveSupport::TestCase
     u = User.new :login => 'adios', :password => 'test222', :email => 'adios@la.com'
     assert !u.save
 	assert u.errors.invalid?('login')
+	# case-insensitive ?
+    u.login = 'Adios'
+	assert !u.save
+	assert u.errors.invalid?('login')
 	# mail
 	u.login = 'soida'
 	u.email = 'adiosf6f@gmail.com'
+	assert !u.save
+	assert u.errors.invalid?('email')
+	# case-insensitive ?
+	u.email = 'AdiosF6F@Gmail.com'
 	assert !u.save
 	assert u.errors.invalid?('email')
   end
