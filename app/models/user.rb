@@ -10,13 +10,13 @@ class User < ActiveRecord::Base
   
   def password=(pass)
     @password = pass
-	self.hashed_password = User.encrypt(pass)
+    self.hashed_password = User.encrypt(pass)
   end
   
   def self.authenticate(login, pass)
     u = find :first, :conditions => ['login = ?', login]
-	return u if u and User.encrypt(pass) == u.hashed_password
-	nil
+    return u if u and User.encrypt(pass) == u.hashed_password
+    nil
   end
   
   protected

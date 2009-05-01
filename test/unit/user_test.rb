@@ -76,20 +76,20 @@ class UserTest < ActiveSupport::TestCase
     #check can't create new user with existing username
     u = User.new :login => 'adios', :password => 'test222', :email => 'adios@la.com'
     assert !u.save
-	assert u.errors.invalid?('login')
-	# case-insensitive ?
+	  assert u.errors.invalid?('login')
+	  # case-insensitive ?
     u.login = 'Adios'
-	assert !u.save
-	assert u.errors.invalid?('login')
-	# mail
-	u.login = 'soida'
-	u.email = 'adiosf6f@gmail.com'
-	assert !u.save
-	assert u.errors.invalid?('email')
-	# case-insensitive ?
-	u.email = 'AdiosF6F@Gmail.com'
-	assert !u.save
-	assert u.errors.invalid?('email')
+	  assert !u.save
+	  assert u.errors.invalid?('login')
+	  # mail
+	  u.login = 'soida'
+	  u.email = 'adiosf6f@gmail.com'
+	  assert !u.save
+	  assert u.errors.invalid?('email')
+	  # case-insensitive ?
+	  u.email = 'AdiosF6F@Gmail.com'
+	  assert !u.save
+	  assert u.errors.invalid?('email')
   end
 
   test 'creation' do
@@ -101,19 +101,19 @@ class UserTest < ActiveSupport::TestCase
   
   test 'md5' do
     u = User.new
-	u.login = 'alison'
-	u.email = 'alison@alison.org'
-	u.password = 'alisonisthebest'
-	assert u.save
-	assert_equal '0c8cba7242f30ddd34aa804356f47245', u.hashed_password
-	assert_equal '0c8cba7242f30ddd34aa804356f47245', User.encrypt('alisonisthebest')
+	  u.login = 'alison'
+    u.email = 'alison@alison.org'
+	  u.password = 'alisonisthebest'
+	  assert u.save
+	  assert_equal '0c8cba7242f30ddd34aa804356f47245', u.hashed_password
+	  assert_equal '0c8cba7242f30ddd34aa804356f47245', User.encrypt('alisonisthebest')
   end
 
   test 'protected attributes' do
     #check attributes are protected
     u = User.new :id => 999999, :login => 'alison', :password => 'alisonisthebest', :email => 'alison@alison.org'
     assert_nil u.id
-	assert u.save
+	  assert u.save
     assert_not_equal 999999, u.id
 
     u.update_attributes :id => 999999, :login => 'aaa'
