@@ -49,16 +49,26 @@ h2 {
     font-size: 80%;
     padding: 0 4px;
 }
-#user_login, #user_password {
+
+#session_login, #session_password {
     font-family: Times, serif;
     width: 100px;
     border: 1px inset #cce8cf;
     border-right: 3px double #cce8cf;
     border-bottom: 3px double #cce8cf;
 }
-#user_submit {
+#session_submit {
     padding: 1px;
     border: 1px outset #cce8cf;
     background-color: #cce8cf;
     color: #42974d;
+}
+p.error {
+    position: absolute;
+    top: -25px;
+    font-size: 80%;
+    color: red;
+}
+span.error {
+    border-left: 3px solid red;
 }

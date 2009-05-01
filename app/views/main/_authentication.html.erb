@@ -1,0 +1,21 @@
+<% if logged_in? -%>
+  <li><%= link_to 'Logout', session_path, :method => :delete %></li>
+  <li><%= link_to session[:user_login], user_path(session[:user_id]) %></li>
+<% else -%>
+  <li>or Signup</li>
+  <li style="position: relative;">
+    <% if flash[:error] -%>
+      <p class="error"><%= flash[:error] %></p>
+    <% end -%>
+    <% form_for :session, @user, :url => session_path do |f| %>
+      <% if flash[:error] -%>
+        <span class="error"><%= f.text_field :login, :size => 32 %></span> 
+        <span class="error"><%= f.password_field :password, :size => 64 %></span>
+      <% else -%>
+        <%= f.text_field :login, :size => 32 %>
+        <%= f.password_field :password, :size => 64 %>
+      <% end -%>
+      <%= f.submit 'Login' %>
+    <% end %>
+  </li>
+<% end -%>

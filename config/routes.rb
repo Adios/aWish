@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :desires, :except => [:new, :edit]
-  map.resources :users
+  map.resource :session, :controller => :main, :only => %w(create destroy)
+  map.resources :users, :as => 'humans'
 
   # The priority is based upon order of creation: first created -> highest priority.
 
