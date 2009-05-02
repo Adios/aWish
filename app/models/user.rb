@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  has_many :desires, :dependent => :destroy
+  has_many :items, :through => :desires
+  has_many :feedbacks, :through => :desires
+
   validates_length_of :login, :within => 3..32
   validates_length_of :password, :within => 5..64
   validates_presence_of :login, :email, :password

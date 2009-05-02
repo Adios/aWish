@@ -29,7 +29,7 @@ class MainControllerTest < ActionController::TestCase
   end
   
   test "login success and logout" do
-    post :create, { :session => { :login => @user_login, :password => 'test' } }
+    post :create, { :session => { :login => @user_login, :password => 'testtest' } }
     assert_response :redirect
     assert_redirected_to user_path(@user_id)
     assert_equal session['user_id'], @user_id

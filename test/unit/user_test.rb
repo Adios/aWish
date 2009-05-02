@@ -5,11 +5,11 @@ class UserTest < ActiveSupport::TestCase
   
   test 'authentication' do
     #check that we can login we a valid user 
-    assert_equal  @adios, User.authenticate('adios', 'test')    
+    assert_equal  @adios, User.authenticate('adios', 'testtest')    
     #wrong username
-    assert_nil    User.authenticate('adioa', 'test')
+    assert_nil    User.authenticate('adioa', 'testtest')
     #wrong password
-    assert_nil    User.authenticate('adios', 'tess')
+    assert_nil    User.authenticate('adios', 'tesss')
     #wrong login and pass
     assert_nil    User.authenticate('wancc', 'testtestt')
   end
@@ -121,4 +121,13 @@ class UserTest < ActiveSupport::TestCase
     assert_not_equal 999999, u.id
     assert_equal 'aaa', u.login
   end
+  
+  test "dependent" do
+    # test dependent
+    assert_difference "Desire.count", -2 do
+      User.destroy(@adios)
+    end
+  end
+
 end
+
