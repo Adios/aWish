@@ -1,0 +1,58 @@
+<% content_for :head do -%>
+  <%= stylesheet_link_tag 'desires/style', 'desires/new' %>
+<% end %>
+
+<% form_for @desire do |d| %>
+  <fieldset class="item">
+    <legend>Item</legend>
+      <% fields_for @item do |i| %>
+        <%= i.error_messages :header_message => 'Oops!', :message => nil %>
+        <p>
+          <span class="left"><label for="name">name: </label></span>
+          <span class="right"><%= i.text_field :name %></span>
+          <span class="clear"></span>
+        </p>
+        <p>
+          <span class="left"><label for="price">price: </label></span>
+          <span class="right"><%= i.text_field :price %></span>
+          <span class="clear"></span>
+        </p>
+        <p>
+          <span class="left"><label for="link">link: </label></span>
+          <span class="right"><%= i.text_field :link %></span>
+          <span class="clear"></span>
+        </p>
+      <% end %>
+  </fieldset>
+  <fieldset class="desire">
+    <legend>Desire</legend>
+    <%= d.error_messages :header_message => 'Oops!', :message => nil %>
+    <p>
+      <span class="left"><label for="budget">budget: </label></span>
+      <span class="right"><%= d.text_field :budget %></span>
+      <span class="clear"></span>
+    </p>
+    <p>
+      <span class="left"><label for="priority">priority: </label></span>
+      <span class="right"><%= d.select :priority, [['%50', 0], ['%80', 1], ['%100', 2], ['%200', 3]] %></span>
+      <span class="clear"></span>
+    </p>
+    <p>
+      <span class="left"><label for="due_at">due: </label></span>
+      <span class="right"><%= d.date_select :due_at %></span>
+      <span class="clear"></span>
+    </p>  
+    <p>
+      <span class="left"><label for="meet">achieve? </label></span>
+      <span class="right"><%= d.select :meet, [['not yet', false], ['got!', true]] %></span>
+      <span class="clear"></span>
+    </p>
+    <p>
+      <span class="left"><label for="met_at">when? </label></span>
+      <span class="right"><%= d.date_select :met_at %></span>
+      <span class="clear"></span>
+    </p>    
+  </fieldset>
+  <span class="right"><%= d.submit edit? ? 'Update' : 'Create', :class => 'submit' %></span>
+  <span class="clear"></span>
+<% end %>

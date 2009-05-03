@@ -12,4 +12,9 @@ class ApplicationController < ActionController::Base
       redirect_to root_url
     end
   end
+  
+  def user_owned? res
+    return true if @current_user and res.user_id? and res.user_id == @current_user.id
+    false
+  end
 end

@@ -15,13 +15,17 @@ class DesiresControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:desires)
-    p @request
   end
   
   test "show" do
     get :show, { :id => '1' }
     assert_response :success
     assert_not_nil assigns(:desire)
+    assert_select 'div.action', false
+    
+    get :show, { :id => '1' }, { :user_id => 1 }
+    assert_response :success
+    assert_select 'div.action'
   end
   
   test "new" do
@@ -33,6 +37,7 @@ class DesiresControllerTest < ActionController::TestCase
     get :new, nil, { :user_id => '1' }
     assert_response :success
     assert_not_nil assigns(:desire)
+    assert_not_nil assigns(:item)
   end
   
   test "edit" do
@@ -41,9 +46,15 @@ class DesiresControllerTest < ActionController::TestCase
     assert_response :redirect
     assert_redirected_to root_url
     # logged in
-    get :edit, { :id => '1' }, { :user_id => '1' }
+    get :edit, { :id => '1' }, { :user_id => 1 }
     assert_response :success
     assert_not_nil assigns(:desire)
+    assert_not_nil assigns(:item)
+    # not the owner
+    get :edit, { :id => '1' }, { :user_id => 2 }
+    assert_response :redirect
+    assert_redirected_to root_url
+    assert flash[:notice] 
   end
   
   test "create" do
@@ -53,7 +64,7 @@ class DesiresControllerTest < ActionController::TestCase
     assert_redirected_to root_url
     # logged in
     assert_difference 'Desire.count' do
-      post :create, { :desire => { } }, { :user_id => '1' }
+      post :create, { :desire => { }, :item => { :name => 'teest' } }, { :user_id => 1 }
     end
     assert_response :redirect
     assert_redirected_to desire_path(assigns(:desire))
@@ -64,9 +75,16 @@ class DesiresControllerTest < ActionController::TestCase
     delete :destroy, { :id => '1' }
     assert_response :redirect
     assert_redirected_to root_url
+    # not the owner
+    assert_no_difference 'Desire.count' do
+      delete :destroy, { :id => '1' }, { :user_id => 2 }
+    end
+    assert_response :redirect
+    assert_redirected_to root_url
+    assert flash[:notice] 
     # logged in
     assert_difference 'Desire.count', -1 do
-      delete :destroy, { :id => '1' }, { :user_id => '1' }
+      delete :destroy, { :id => '1' }, { :user_id => 1 }
     end
     assert_response :redirect
     assert_redirected_to user_path(1)
@@ -79,9 +97,16 @@ class DesiresControllerTest < ActionController::TestCase
     assert_redirected_to root_url
     # logged in
     assert_no_difference 'Desire.count' do
-      put :update, { :id => '1' }, { :user_id => '1' }
+      put :update, { :id => '1' }, { :user_id => 1 }
     end
     assert_response :redirect
-    assert_redirected_to desire_path(assigns(:desire))    
+    assert_redirected_to desire_path(assigns(:desire))
+    # not the owner
+    assert_no_difference 'Desire.count' do
+      put :update, { :id => '1' }, { :user_id => 2 }
+    end
+    assert_response :redirect
+    assert_redirected_to root_url
+    assert flash[:notice]    
   end
 end

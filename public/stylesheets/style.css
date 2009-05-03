@@ -6,7 +6,7 @@ body {
 ul, li { 
     list-style: none; 
 }
-h1 {
+#header h1 {
     color: #42974d;
     font-family: Impact, Copperplate, fantasy;
     font-size: 400%;
@@ -17,7 +17,7 @@ h1 {
     top: 0;
     left: 20px;
 }
-h2 {
+#header h2 {
     color: #cce8cf;
     font-size: 110%;
     font-stretch: wider;
@@ -38,6 +38,7 @@ h2 {
     line-height: 30px; 
 }
 #header {
+    background: #fff url(/images/sprite.png) repeat-x scroll 0px 60px;
     position: relative;
 }
 #header li {
@@ -51,7 +52,7 @@ h2 {
 }
 
 #session_login, #session_password {
-    font-family: Times, serif;
+    font-family: Georgia, New York, Times, serif;
     width: 100px;
     border: 1px inset #cce8cf;
     border-right: 3px double #cce8cf;

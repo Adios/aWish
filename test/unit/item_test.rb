@@ -50,6 +50,9 @@ class ItemTest < ActiveSupport::TestCase
     # nil
     @mac.link = nil
     assert @mac.save
+    # blank
+    @mac.link = ''
+    assert @mac.save
     # invalid
     @mac.link = 'adioshttp://'
     assert !@mac.save

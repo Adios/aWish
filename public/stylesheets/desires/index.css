@@ -1,0 +1,38 @@
+#content li:hover {
+    background: #eaffed;
+}
+span.left {
+    float: left;
+    width: 20%;
+    padding-right: 5px;
+}
+
+span.middle {
+    float: left;
+    width: 65%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+span.right {
+    float: left;
+    width: 12%;
+    padding-left: 5px;
+}
+span.human {
+    float: right;
+    padding-right: 10px;
+}
+span.verb {
+    float: right;
+}
+span.item {
+    float: left;
+}
+span.money {
+    float: right;
+    font-size: 80%;
+}
+span.date {
+    float: left;
+    font-size: 70%;
+}

@@ -1,0 +1,38 @@
+<ul>
+<% if feedback.nil? %>
+  <li style="text-align: center;">
+    The desire has no feedbacks yet.
+    <span class="clear"></span>
+  </li>
+<% else %>  
+  <li>
+    <span class="middle">
+      <b>spent: </b>
+    </span>
+    <span class="right">
+      <%= feedback.spent ? feedback.spent.to_i : 'secret' %>
+    </span>
+    <span class="clear"></span>
+  </li>
+  <hr />
+  <li>
+    <span class="middle">
+      <b>source: </b>
+    </span>
+    <span class="right">
+      <%= feedback.source ? feedback.source : 'secret' %>
+    </span>
+    <span class="clear"></span>
+  </li>
+  <hr />
+  <li>
+    <span class="middle">
+      <b>note: </b>
+    </span>
+    <span class="right">
+      <%= feedback.note ? feedback.note : 'none' %>
+    </span>
+    <span class="clear"></span>
+  </li>
+<% end %>
+</ul>

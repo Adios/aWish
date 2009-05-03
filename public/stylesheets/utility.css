@@ -1,0 +1,14 @@
+span.clear { 
+  clear: both; 
+  display: block;
+}
+span.left {
+  float: left;
+}
+span.right {
+  float: right;
+}
+div.center {
+  margin: 0 auto;
+  text-align: center;
+}
