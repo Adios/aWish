@@ -2,7 +2,11 @@ class DesiresController < ApplicationController
   before_filter :login_required, :except => %w(index show)
 
   def index
-    @desires = Desire.all :order => "updated_at DESC"
+    if params[:user_id].nil?
+      @desires = Desire.all :order => "updated_at DESC"
+    else
+      @desires = User.find(params[:user_id]).desires
+    end
 
     respond_to do |format|
       format.html
