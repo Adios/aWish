@@ -1,0 +1,159 @@
+body { 
+  color: #333;
+  background: #fff url(/images/sprite.png) repeat-x scroll 0px 0px;
+	padding: 2em;
+	padding-top: 1em;
+}
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #000; }
+
+h1 { 
+	background-color: #cce8cf; 
+}
+
+#container {
+	border: 6px solid #cce8cf;
+	border-left: 0;
+}
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+#navigation {
+	float: left;
+	width: 40%;
+}
+#total-items {
+	float: left;
+	width: 15%;
+}
+#total-expenses {
+	float: left;
+	width: 15%;
+}
+#total-budgets {
+  float: left;
+  width: 15%;
+}
+#tobuy-items {
+  float: left;
+  width: 15%;
+}
+
+span.clear { clear: both; display: block; }
+
+#status-area {
+	width: 200px;
+	margin: 0 auto 10px auto;
+	height: 30px;
+	line-height: 30px; 
+	padding-left: 40px;
+	border: 3px solid #fff;
+}
+
+#content {
+	width: 90%;
+	margin: 0 auto;
+}
+
+ul, li {
+  padding-left: 0;
+  margin-left: 0;
+  list-style: none;
+}
+
+img { border: 0px; }
+
+#desire-list {
+  border-top: 1px solid #cce8cf;
+  float: left;
+  width: 60%;
+}
+
+#desire-list li { 
+  height: 22px; 
+  line-height: 22px;
+  border: 1px solid #cce8cf;
+  border-top: none;
+  padding: 2px 15px;
+}
+#desire-list li.emergent { background-color: #d6fcd9; }
+#desire-list li.urgent { background-color: #e0ffe3; }
+#desire-list li.non-urgent { background-color: #eaffed; }
+#desire-list li.selected { background-color: #cce8cf; color: #42974d; }
+#desire-list li a { float: left; }
+#desire-list span.price { float: right; font-size: 80%;  }
+#desire-list li.purchased { color: #777; }
+#desire-list li input { 
+  border: none;
+  margin: 0;
+  padding: 0;
+  height: 22px;
+  line-height: 22px;
+  font-size: 22px;
+}
+
+.input { display: none; }
+
+#desire-details {
+  border: 1px solid #cce8cf;
+  float: right;
+  width: 33%;
+  padding: 20px;
+}
+
+#desire-meta {
+}
+
+#desire-attribute { display: none; }
+
+#desire-details li input { border: 1px solid #fff; }
+#desire-details li input.focused { border: 1px inset #cce8cf; }
+#desire-details li input.name { font-weight: bold; margin-bottom: 7px; width: 100%; font-size: 110%;}
+
+

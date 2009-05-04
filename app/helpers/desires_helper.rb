@@ -1,21 +1,18 @@
 module DesiresHelper
-  def budget_or_spent desire
-    if desire.meet 
-      desire.feedback.spent ? 'spent $' + desire.feedback.spent.to_i.to_s : ''
-    else
-      desire.budget ? 'under $' + desire.budget.to_i.to_s : ''
+  def generate_item_classes data
+    c = Array.new
+    if data.purchase
+      c << "purchased" 
+      return c.join(" ")
     end
-  end
-  
-  def priority_message p
-    [ '<span title="I want it.">50%</span>', 
-      '<span title="I hope have one.">80%</span>', 
-      '<span title="I will buy!">100%</span>', 
-      '<span title="I must buy!">200%</span>' 
-    ].at(p)
-  end
-  
-  def edit?
-    (controller.action_name == 'edit') ? true : false
+    
+    case data.priority
+    when 0 then return c.join(" ")
+    when 1 then c << "non-urgent"
+    when 2 then c << "urgent"
+    when 3 then c << "emergent"
+    end
+    
+    c.join(" ")
   end
 end

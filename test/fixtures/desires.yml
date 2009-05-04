@@ -1,25 +1,179 @@
-adios_mac:
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+NotyetPriority3:
   id: 1
-  user_id: 1
-  item_id: 1
-  meet: false
-  due_at: 2009-10-10
-  priority: 0
-  
-adios_lee:
-  id: 2
-  user_id: 1
-  item_id: 2
-  met_at: 2008-10-10
-  meet: true
+  name: MacMini
   priority: 3
-  feedback_id: 1
-  
-wancw_mac:
-  id: 3
-  user_id: 2
-  item_id: 1
-  budget: 20000.0
-  meet: false
+  price: 19900
+  purchase: false
+  due: 2009-06-08
+  link: http://store.apple.com/tw-edu/configure/MB463TA/A?mco=NDE4NTQzMw
+  note: |
+    規格
+    2.0GHz Intel Core 2 Duo
+    1GB 1066MHz DDR3 SDRAM - 1x1GB
+    120GB Serial ATA 磁碟
+    SuperDrive 8x (DVD±R DL/DVD±RW/CD-RW)
+    User's Guide (Traditional Chinese)
+
+NotyetPriority2:
+  id: 2
   priority: 2
-  feedback_id: 2
+  name: MacBook
+  price: 51900
+  purchase: false
+  due: 2009-07-08
+  link: http://store.apple.com/tw-edu/configure/MB467TA/A?mco=MTkzOTA0OA
+  note: |
+    規格
+    2.4GHz Intel Core 2 Duo
+    2GB 1066MHz DDR3 SDRAM - 2x1GB
+    250GB Serial ATA Drive @ 5400 rpm
+    SuperDrive 8x (DVD±R DL/DVD±RW/CD-RW)
+    Keyboard & User's Guide
+
+NotyetPriority1:
+  id: 3
+  priority: 1
+  name: 牛皮滾邊立體剪裁低腰直筒牛仔褲
+  price: 2624
+  purchase: false
+  due: 2009-07-09
+  link: http://udn.monday.com.tw/gdsale/gdsale.asp?gdid=1291609
+  note: |
+    【Lee】隋棠最愛 - LWD歐洲工藝 牛皮滾邊立體剪裁低腰直筒牛仔褲
+     
+     LWD就是Lee Works of Denim，此系列每件牛仔褲都以歐洲百年工藝技術精采呈現!
+     側邊車線流線S型人體工學3D立體設計，讓雙腿活動更自如!
+     上寬下窄版型，呈現濃厚歐美街頭風!
+     
+NotyetPriority0:
+  id: 4
+  priority: 0
+  name: YADI-LCD 液晶鍵盤收納架
+  price: 700
+  purchase: false
+  due: 2008-05-10
+  link: http://buy.yahoo.com.tw/gdsale/gdsale.asp?gdid=969751
+  note: |
+    時尚精品.敗家必備
+    YADI-專業設計不同於一般桌上收納架.充滿時尚美感與透明質感.
+    這是鍵盤收納架中的精品，可以搭配各種LCD與各種桌面.不會有不協調的感覺.
+    可完全融入整體搭配.瞬間提升配備等級.桌面收納擺設整齊.工作效率提升.
+    彈性組合.空間搭配多變
+    可以多種組合搭配，選擇自己要的組合方式，調整適合的高度
+    (銀色腳柱為3.5cm，故可置入鍵盤高度3.5cm，延伸腳架可另作加購)
+
+NotyetPriority02:
+  id: 5
+  priority: 0
+  name: YADI-LCD 液晶鍵盤收納架2
+  price: 700
+  purchase: false
+  due: 2008-05-10
+  link: http://buy.yahoo.com.tw/gdsale/gdsale.asp?gdid=969751
+  note: |
+    時尚精品.敗家必備
+    YADI-專業設計不同於一般桌上收納架.充滿時尚美感與透明質感.
+    這是鍵盤收納架中的精品，可以搭配各種LCD與各種桌面.不會有不協調的感覺.
+    可完全融入整體搭配.瞬間提升配備等級.桌面收納擺設整齊.工作效率提升.
+    彈性組合.空間搭配多變
+    可以多種組合搭配，選擇自己要的組合方式，調整適合的高度
+    (銀色腳柱為3.5cm，故可置入鍵盤高度3.5cm，延伸腳架可另作加購)
+
+YesPriority3:
+  id: 6
+  priority: 3
+  name: 變形金剛 Blu-ray Disc 中文版1
+  price: 1100
+  purchase: true
+  due: 2008-04-27
+  link: http://goods.ruten.com.tw/item/show?11080928373553
+  note: |  
+    Video
+    Video codec: MPEG-4 AVC
+    Video resolution: 1080p
+    Aspect ratio: 2.35:1
+    Audio
+    English: Dolby TrueHD 5.1
+    French: Dolby Digital 5.1
+    Spanish: Dolby Digital 5.1
+    Subtitles
+    English SDH, English, French, Spanish
+    Discs
+    50GB Blu-ray Disc
+    Two-disc set
+    歡迎自取　但僅限捷運公館站呦～
+    
+NotYetPriority3:
+  id: 7
+  priority: 3
+  name: 變形金剛 Blu-ray Disc 中文版2
+  price: 1100
+  purchase: false
+  due: 2008-04-27
+  link: http://goods.ruten.com.tw/item/show?11080928373553
+  note: |  
+    Video
+    Video codec: MPEG-4 AVC
+    Video resolution: 1080p
+    Aspect ratio: 2.35:1
+    Audio
+    English: Dolby TrueHD 5.1
+    French: Dolby Digital 5.1
+    Spanish: Dolby Digital 5.1
+    Subtitles
+    English SDH, English, French, Spanish
+    Discs
+    50GB Blu-ray Disc
+    Two-disc set
+    歡迎自取　但僅限捷運公館站呦～
+
+YesPriority1:
+  id: 8
+  priority: 1
+  name: 變形金剛 Blu-ray Disc 中文版3
+  price: 1100
+  purchase: true
+  due: 2008-04-27
+  link: http://goods.ruten.com.tw/item/show?11080928373553
+  note: |  
+    Video
+    Video codec: MPEG-4 AVC
+    Video resolution: 1080p
+    Aspect ratio: 2.35:1
+    Audio
+    English: Dolby TrueHD 5.1
+    French: Dolby Digital 5.1
+    Spanish: Dolby Digital 5.1
+    Subtitles
+    English SDH, English, French, Spanish
+    Discs
+    50GB Blu-ray Disc
+    Two-disc set
+    歡迎自取　但僅限捷運公館站呦～
+
+YesPriority0:
+  id: 9
+  priority: 0
+  name: 變形金剛 Blu-ray Disc 中文版4
+  price: 1100
+  purchase: true
+  due: 2008-04-27
+  link: http://goods.ruten.com.tw/item/show?11080928373553
+  note: |  
+    Video
+    Video codec: MPEG-4 AVC
+    Video resolution: 1080p
+    Aspect ratio: 2.35:1
+    Audio
+    English: Dolby TrueHD 5.1
+    French: Dolby Digital 5.1
+    Spanish: Dolby Digital 5.1
+    Subtitles
+    English SDH, English, French, Spanish
+    Discs
+    50GB Blu-ray Disc
+    Two-disc set
+    歡迎自取　但僅限捷運公館站呦～
+  

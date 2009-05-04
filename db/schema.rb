@@ -9,43 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 4) do
+ActiveRecord::Schema.define(:version => 3) do
 
   create_table "desires", :force => true do |t|
-    t.integer  "priority",    :default => 0
-    t.boolean  "meet",        :default => false
-    t.decimal  "budget"
-    t.date     "due_at"
-    t.date     "met_at"
-    t.integer  "user_id"
-    t.integer  "item_id"
-    t.integer  "feedback_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "feedbacks", :force => true do |t|
-    t.decimal  "spent"
-    t.string   "source"
+    t.string   "name",                          :null => false
+    t.decimal  "price"
+    t.boolean  "purchase",   :default => false
+    t.date     "due"
+    t.string   "link"
     t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "items", :force => true do |t|
-    t.string   "name"
-    t.decimal  "price"
-    t.string   "link"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "users", :force => true do |t|
-    t.string   "login"
-    t.string   "hashed_password"
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "priority",   :default => 0
   end
 
 end

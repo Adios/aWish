@@ -1,112 +1,45 @@
 require 'test_helper'
 
 class DesiresControllerTest < ActionController::TestCase
-  test "routing" do
-    assert_routing '/desires', { :controller => 'desires', :action => 'index' }
-    assert_routing '/desires/new', { :controller => 'desires', :action => 'new' }
-    assert_routing '/desires/1/edit', { :controller => 'desires', :action => 'edit', :id => '1' }
-    assert_routing '/desires/1', { :controller => 'desires', :action => 'show', :id => '1' }
-    assert_routing({ :method => :post, :path => '/desires' }, { :controller => 'desires', :action => 'create' })
-    assert_routing({ :method => :delete, :path => '/desires/1' }, { :controller => 'desires', :action => 'destroy', :id => '1' })
-    assert_routing({ :method => :put, :path => '/desires/1' }, { :controller => 'desires', :action => 'update', :id => '1' })
-  end
-
-  test "index" do
+  test "should get index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:desires)
   end
-  
-  test "show" do
-    get :show, { :id => '1' }
-    assert_response :success
-    assert_not_nil assigns(:desire)
-    assert_select 'div.action', false
-    
-    get :show, { :id => '1' }, { :user_id => 1 }
-    assert_response :success
-    assert_select 'div.action'
-  end
-  
-  test "new" do
-    # not logged in
+
+  test "should get new" do
     get :new
-    assert_response :redirect
-    assert_redirected_to root_url
-    # logged in
-    get :new, nil, { :user_id => '1' }
     assert_response :success
-    assert_not_nil assigns(:desire)
-    assert_not_nil assigns(:item)
   end
-  
-  test "edit" do
-    # not logged in
-    get :edit
-    assert_response :redirect
-    assert_redirected_to root_url
-    # logged in
-    get :edit, { :id => '1' }, { :user_id => 1 }
-    assert_response :success
-    assert_not_nil assigns(:desire)
-    assert_not_nil assigns(:item)
-    # not the owner
-    get :edit, { :id => '1' }, { :user_id => 2 }
-    assert_response :redirect
-    assert_redirected_to root_url
-    assert flash[:notice] 
-  end
-  
-  test "create" do
-    # not logged in
-    post :create, { :desire => { } }
-    assert_response :redirect
-    assert_redirected_to root_url
-    # logged in
-    assert_difference 'Desire.count' do
-      post :create, { :desire => { }, :item => { :name => 'teest' } }, { :user_id => 1 }
+
+  test "should create desire" do
+    assert_difference('Desire.count') do
+      post :create, :desire => { }
     end
-    assert_response :redirect
+
     assert_redirected_to desire_path(assigns(:desire))
   end
-  
-  test "destroy" do
-    # not logged in
-    delete :destroy, { :id => '1' }
-    assert_response :redirect
-    assert_redirected_to root_url
-    # not the owner
-    assert_no_difference 'Desire.count' do
-      delete :destroy, { :id => '1' }, { :user_id => 2 }
-    end
-    assert_response :redirect
-    assert_redirected_to root_url
-    assert flash[:notice] 
-    # logged in
-    assert_difference 'Desire.count', -1 do
-      delete :destroy, { :id => '1' }, { :user_id => 1 }
-    end
-    assert_response :redirect
-    assert_redirected_to user_path(1)
+
+  test "should show desire" do
+    get :show, :id => desires(:one).to_param
+    assert_response :success
   end
-  
-  test "update" do
-    # not logged in
-    put :update, { :id => '1' }
-    assert_response :redirect
-    assert_redirected_to root_url
-    # logged in
-    assert_no_difference 'Desire.count' do
-      put :update, { :id => '1' }, { :user_id => 1 }
-    end
-    assert_response :redirect
+
+  test "should get edit" do
+    get :edit, :id => desires(:one).to_param
+    assert_response :success
+  end
+
+  test "should update desire" do
+    put :update, :id => desires(:one).to_param, :desire => { }
     assert_redirected_to desire_path(assigns(:desire))
-    # not the owner
-    assert_no_difference 'Desire.count' do
-      put :update, { :id => '1' }, { :user_id => 2 }
+  end
+
+  test "should destroy desire" do
+    assert_difference('Desire.count', -1) do
+      delete :destroy, :id => desires(:one).to_param
     end
-    assert_response :redirect
-    assert_redirected_to root_url
-    assert flash[:notice]    
+
+    assert_redirected_to desires_path
   end
 end

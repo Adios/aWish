@@ -1,0 +1,38 @@
+<p>
+  <b>Name:</b>
+  <%=h @desire.name %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%=h @desire.price %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%=h @desire.priority %>
+</p>
+
+<p>
+  <b>Purchase:</b>
+  <%= @desire.purchase ? 'yes' : 'not yet' %>
+</p>
+
+<p>
+  <b>Due:</b>
+  <%=h @desire.due %>
+</p>
+
+<p>
+  <b>Link:</b>
+  <%= link_to h(@desire.link), @desire.link %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%=h @desire.note %>
+</p>
+
+
+<%= link_to 'Modify', edit_desire_path(@desire) %> |
+<%= link_to 'Back', desires_path %>

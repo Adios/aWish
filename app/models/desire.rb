@@ -1,11 +1,13 @@
 class Desire < ActiveRecord::Base
-  belongs_to :feedback
-  belongs_to :user
-  belongs_to :item
+  self.include_root_in_json = false
   
-  validates_inclusion_of :meet, :in => [true, false]
-  validates_inclusion_of :priority, :in => 0..3
-  validates_numericality_of :budget, :allow_nil => true, :greater_than_or_equal_to => 0
-
-  attr_protected :id, :user_id, :item_id, :feedback_id
+  def self.expenses
+    Desire.sum(:price) || BigDecimal("0.0")
+  end
+  def self.budgets
+    Desire.sum(:price, :conditions => [ "purchase == ?", false ]) || BigDecimal("0.0")
+  end
+  def self.unachieved
+    Desire.find_all_by_purchase(false).size
+  end
 end
