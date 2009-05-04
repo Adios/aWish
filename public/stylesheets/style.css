@@ -73,3 +73,12 @@ p.error {
 span.error {
     border-left: 3px solid red;
 }
+#content {
+    border: 15px solid #cce8cf;
+    border-left-color: #fff;
+    padding: 10px 5%;
+    
+    font-family: Georgia, New York, Times, serif;
+    color: #777;
+    font-size: 110%;
+}

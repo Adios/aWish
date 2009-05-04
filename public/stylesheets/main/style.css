@@ -1,3 +1,6 @@
 body {
     background: #fff url(/images/bg.png) repeat-x scroll 0px center;
 }
+#content {
+    border: none;
+}
