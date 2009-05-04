@@ -1,0 +1,42 @@
+div.human {
+    float: left;
+    width: 25%;
+    padding: 20px;
+}
+div.human li {
+    text-align: center;
+}
+div.desire_and_item {
+    float: left;
+    width: 62%;
+    border-left: 15px solid #cce8cf;
+    padding: 20px;
+    position: relative;
+}
+div.desire_and_item ul {
+    padding-top: 10px;
+}
+div.feedback {
+    width: 100%;
+    border-top: 15px solid #cce8cf;
+    margin-top: 10px;
+}
+div.feedback ul {
+    padding-left: 4%;
+    padding-right: 4%;
+}
+div.center {
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+#content a {
+    color: #42974d;
+}
+#content a:hover {
+    background-color: #eaffed;
+}
+div.action {
+    position: absolute;
+    right: 3%;
+}

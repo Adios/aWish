@@ -1,0 +1,7 @@
+<% content_for :head do -%>
+  <%= stylesheet_link_tag 'desires/style', 'desires/index' %>
+<% end %>
+
+<ul>
+  <%= render :partial => 'desire', :collection => @desires, :spacer_template => 'seprator' %>
+</ul>

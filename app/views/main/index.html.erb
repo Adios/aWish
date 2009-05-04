@@ -1,36 +1,3 @@
-<h1>Listing desires</h1>
-
-<div id="content">
-
-<div id="status-area"></div>
-
-<ul id="desire-list">
-  <li class="input">
-  <% form_for @desire do |f| %>
-    <%= f.text_field :name %>
-    <%= f.submit 'create' %>
-  <% end %>
-  </li>
-  <%= render :partial => 'desire', :collection => @desires %>
-</ul>
-
-<ul id="desire-details">
-  <div id="desire-meta">
-	<%= render :partial => 'meta', :collection =>  @meta %>
-  </div>
-  <div id="desire-attribute">
-	<%= hidden_field_tag '_method', 'put' %>
-	<%= render :partial => 'attribute', :collection => @attr %>
-  </div>
-</ul>
-
-<span class="clear"></span>
-</div>
-
-<br />
-
-<div id="navigation" class="column">
-<%= link_to 'add...', '#', :id => "new-button" %>
-</div>
-
-<span class="clear"></span>
+<%- content_for :head do -%>
+  <%= stylesheet_link_tag 'main/style' %>
+<%- end -%>

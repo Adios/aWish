@@ -1,82 +1,85 @@
 class DesiresController < ApplicationController
-  # GET /desires
+  before_filter :login_required, :except => %w(index show)
+
   def index
-    all
+    @desires = Desire.all :order => "updated_at DESC"
+
+    respond_to do |format|
+      format.html
+    end
   end
   
-  # GET /desires/1
-  # GET /desires/1.xml
+  def new
+    @desire = Desire.new
+    @item = Item.new
+  end
+  
+  def edit
+    @desire = Desire.find(params[:id])
+    
+    if user_owned?(@desire)
+      @item = Item.find(@desire.item)
+      render :new
+    else
+      flash[:notice] = "you must own the resource!"
+      redirect_to root_url
+    end
+  end
+  
   def show
     @desire = Desire.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @desire }
+      format.html
     end
   end
 
-  # POST /desires
-  # POST /desires.xml
   def create
     @desire = Desire.new(params[:desire])
+    @item = Item.new(params[:item])
+    
+    @desire.user = @current_user
+    @desire.item = @item
 
     respond_to do |format|
-      if @desire.save
-	    flash[:notice] = 'Desire was successfully created.'
-        format.json { render :json => { 'path' => desire_path(@desire), 'status' => 1, 'message' => 'created successfully.' } }
+      if @item.save and @desire.save
         format.html { redirect_to(@desire) }
-        format.xml  { render :xml => @desire, :status => :created, :location => @desire }
       else
-        fotmat.json { render :json => { 'status' => 0, 'message' => 'created failed.' } }
         format.html { render :action => "new" }
-        format.xml  { render :xml => @desire.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # PUT /desires/1
-  # PUT /desires/1.xml
   def update
     @desire = Desire.find(params[:id])
-
-    respond_to do |format|
-      if @desire.update_attributes(params[:desire])
-        flash[:notice] = 'Desire was successfully updated.'
-	    format.json { render :json => { 'status' => 1, 'message' => 'updated successfully.' } }
-        format.html { redirect_to(@desire) }
-        format.xml  { head :ok }
+    
+    respond_to do |format| 
+      if user_owned?(@desire)
+        @item = @desire.item
+        if @item.update_attributes(params[:item]) and @desire.update_attributes(params[:desire])
+          format.html { redirect_to(@desire) }
+        else
+          format.html { render :action => "edit" }
+        end
       else
-	    format.json { render :json => { 'status' => 0, 'message' => 'updated failed.' } }
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @desire.errors, :status => :unprocessable_entity }
+        flash[:notice] = "you must own the resource!"
+        format.html { redirect_to root_url }
       end
     end
   end
 
-  # DELETE /desires/1
-  # DELETE /desires/1.xml
   def destroy
     @desire = Desire.find(params[:id])
-    @desire.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(desires_url) }
-      format.xml  { head :ok }
-    end
-  end
-  
-  private
-  
-  def all
-    @desires = Desire.all
     
-    response = Array.new
-    @desires.each do |d|
-      response[d.id] = d
-    end
-  
     respond_to do |format|
-      format.json { render :json => response.to_json(:except => [ "note" ]) }
+      if user_owned?(@desire)
+        if @desire.destroy
+          format.html { redirect_to(user_path(@current_user)) }
+        end
+      else
+        flash[:notice] = "you must own the resource!"
+        format.html { redirect_to root_url }
+      end
     end
   end
 end
