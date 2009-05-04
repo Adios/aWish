@@ -17,4 +17,9 @@ class ApplicationController < ActionController::Base
     return true if @current_user and res.user_id? and res.user_id == @current_user.id
     false
   end
+  
+  def user? user
+    return true if @current_user and user.id == @current_user.id
+    false
+  end
 end
