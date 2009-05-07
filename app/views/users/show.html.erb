@@ -15,6 +15,9 @@
 
 <div id="panel">
   <%= render :partial => 'commons/user', :locals => { :user => @user } %>
+  <% if user? @user %>
+  <%= link_to 'Reborn', edit_user_path(@user) %>
+  <% end %>
 </div>
 
 <span class="clear"></span>

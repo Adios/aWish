@@ -22,7 +22,7 @@ the screenshot of current developing application is following:
 
 Original[http://picasaweb.google.com/lh/photo/_xL_fRUmwy2kcLOCAdiIgQ?feat=directlink]
 
-http://lh3.ggpht.com/_RrEBYXh3BJQ/Se_lStNNR_I/AAAAAAAABeI/88CAlayIA68/s800/screenshot.png
+http://lh5.ggpht.com/_RrEBYXh3BJQ/SgKr5mpkGrI/AAAAAAAABfk/LmlfDyqPmNw/s800/%E5%9C%96%E7%89%87%201.png
 
 =Architecture
 * Currently, the app renders index.html and <b>handle any request from index</b> by using MainController.
@@ -31,11 +31,11 @@ http://lh3.ggpht.com/_RrEBYXh3BJQ/Se_lStNNR_I/AAAAAAAABeI/88CAlayIA68/s800/scree
 
 here is the class diagram for controllers:
 
-http://lh6.ggpht.com/_RrEBYXh3BJQ/Se_4O6_XzZI/AAAAAAAABeQ/SAqHozWlfVc/s400/controller.png
+http://lh6.ggpht.com/_RrEBYXh3BJQ/SgKqdiWl1jI/AAAAAAAABfc/3Tot__DKVkA/s400/controllers.png
 
 and here is the model diagram:
 
-http://lh6.ggpht.com/_RrEBYXh3BJQ/Se_4PAbqGtI/AAAAAAAABeY/tU-hAwBuwmQ/s400/model.png
+http://lh3.ggpht.com/_RrEBYXh3BJQ/SgKqd0ddLmI/AAAAAAAABfg/L24kIwwAg_g/s400/model.png
 
 =Provided API
 The application is <b>RESTful</b>. It provides the basic operation on <b>Desire</b>, such as 
