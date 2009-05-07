@@ -1,0 +1,11 @@
+<li>
+  <span class="left"><%= image_tag 'unknown.png', :size => '128x128' %></span>
+  
+  <ul>
+    <li class="title"><%= link_to item.name, item %></li>
+    <li> wanted by 
+      <%= item.users.map {|u| link_to u.login, u }.join(', ') %>
+    </li>
+  </ul>
+  <span class="clear"></span>
+</li>

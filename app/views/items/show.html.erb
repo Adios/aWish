@@ -1,0 +1,19 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'items/show' %>
+<% end %>
+
+<div id="item-board">
+ <% if logged_in? %>
+  <div class="action">
+    <%= link_to 'I want it!', want_item_path, :method => :post %>
+  </div>
+  <% end %>
+  <%= render :partial => 'commons/item', :locals => { :item => @item } %>
+</div>
+
+<div id="feedback-board">
+  <% @item.feedbacks.each do |f| %>
+    <div class="owner">Feedback of: <%= link_to f.user.login, f.user %></div>
+    <%= render :partial => 'commons/feedback', :locals => { :feedback => f } %>
+  <% end %>
+</div>

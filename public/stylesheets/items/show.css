@@ -1,0 +1,20 @@
+#content ul {
+  width: 70%;
+  margin: 0 auto;
+
+  padding: 20px 40px;
+}
+#content a {
+  color: #42974d;
+}
+#item-board {
+  border-bottom: 15px solid #cce8cf;
+  position: relative;
+}
+div.owner {
+  padding: 20px 0 0 40px;
+}
+div.action {
+    position: absolute;
+    right: 3%;
+}

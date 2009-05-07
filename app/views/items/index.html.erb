@@ -1,0 +1,7 @@
+<% content_for :head do -%>
+  <%= stylesheet_link_tag 'items/index' %>
+<% end %>
+
+<ul>
+  <%= render :partial => 'item', :collection => @items %>
+</ul>

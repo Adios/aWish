@@ -1,5 +1,6 @@
 class Feedback < ActiveRecord::Base
   has_one :desire, :validate => true
+  has_one :user, :through => :desire
   
   validates_numericality_of :spent, :allow_nil => true, :if => Proc.new {|i| i.desire and i.desire.meet }, :greater_than_or_equal_to => 0
   validates_length_of :note, :maximum => 1024, :allow_nil => true

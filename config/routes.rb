@@ -3,7 +3,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users, :as => 'humans', :except => %(index destroy), :path_names => { :new => :being, :edit => :reborn } do |user|
     user.resources :desires, :only => %(index)
   end
-  map.resources :desires, :items, :feedbacks
+  map.resources :desires
+  map.resources :items, :only => %w(index show), :member => { :want => :post }
 
   # The priority is based upon order of creation: first created -> highest priority.
 
