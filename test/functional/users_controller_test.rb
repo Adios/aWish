@@ -2,11 +2,18 @@ require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
   test "routing" do
+    assert_routing '/humans', { :controller => 'users', :action => 'index' }
     assert_routing '/humans/being', { :controller => 'users', :action => 'new' }
     assert_routing '/humans/1/reborn', { :controller => 'users', :action => 'edit', :id => '1' }
     assert_routing '/humans/1', { :controller => 'users', :action => 'show', :id => '1' }
     assert_routing({ :method => :post, :path => '/humans' }, { :controller => 'users', :action => 'create' })
     assert_routing({ :method => :put, :path => '/humans/1' }, { :controller => 'users', :action => 'update', :id => '1' })
+  end
+
+  test "index" do
+    get :index
+    assert_response :success
+    assert_not_nil assigns(:users)
   end
 
   test "show" do

@@ -1,6 +1,12 @@
 li.title {
-  padding-bottom: 10px;
+    padding-bottom: 10px;
 }
 #content a {
-  color: #42974d;
+    color: #42974d;
+}
+hr {
+    border: 1px dotted #cce8cf;
+}
+li.item {
+    padding: 20px 0;
 }
