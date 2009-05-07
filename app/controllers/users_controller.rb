@@ -28,6 +28,7 @@ class UsersController < ApplicationController
     
     respond_to do |format|
       if @user.save
+        login_as @user
         flash[:notice] = "Happy birthday to you!"
         format.html { redirect_to(@user) }
       else

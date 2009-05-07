@@ -27,6 +27,7 @@ ul, li {
     height: 30px;
     opacity: 0.6;
     z-index: 6;
+    margin-left: 20px;
 }
 #header ul, #footer ul { 
     background: #fff url(/images/hr.png) repeat-x scroll 0px center;

@@ -29,7 +29,7 @@ class UsersControllerTest < ActionController::TestCase
     # logged in
     get :edit, { :id => '1' }, { :user_id => 1 }
     assert_response :success
-    assert_not_nil assigns(:user)
+    assert_not_nil edit_user_path(assigns(:user))
     # not the user
     get :edit, { :id => '1' }, { :user_id => 2 }
     assert_response :redirect
@@ -38,11 +38,14 @@ class UsersControllerTest < ActionController::TestCase
   end
   
   test "create" do
+    # test if u r logged as 'adios', create a new user will reset the session
     assert_difference 'User.count' do
-      post :create, { :user => { :login => 'alison', :password => 'alisonisthebest', :email => 'alison@alis.org' } }
+      post :create, { :user => { :login => 'alison', :password => 'alisonisthebest', :password_confirmation => 'alisonisthebest', :email => 'alison@alis.org' } }, { :user_id => 1 }
     end
     assert_response :redirect
     assert_redirected_to assigns(:user)
+    assert session[:user_id]
+    assert_not_equal session[:user_id], 1
   end
   
   test "update" do
@@ -52,13 +55,13 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to root_url
     # logged in
     assert_no_difference 'User.count' do
-      put :update, { :id => '1', :user => { :login => 'alison', :password => 'alisonisthebest', :email => 'alison2@alison.org'} }, { :user_id => 1 }
+      put :update, { :id => '1', :user => { :login => 'alison', :password => 'alisonisthebest', :password_confirmation => 'alisonisthebest', :email => 'alison2@alison.org'} }, { :user_id => 1 }
     end
     assert_response :redirect
     assert_redirected_to assigns(:user)
     # not the owner
     assert_no_difference 'Desire.count' do
-      put :update, { :id => '1', :user => { :login => 'alison', :password => 'alisonisthebest', :email => 'alison2@alison.org'} }, { :user_id => 2 }
+      put :update, { :id => '1', :user => { :login => 'alison', :password => 'alisonisthebest', :password_confirmation => 'alisonisthebest', :email => 'alison2@alison.org'} }, { :user_id => 2 }
     end
     assert_response :redirect
     assert_redirected_to root_url

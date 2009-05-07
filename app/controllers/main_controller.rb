@@ -6,11 +6,11 @@ class MainController < ApplicationController
     
   # POST /session
   def create
+    reset_session
     u = User.authenticate(params[:session][:login], params[:session][:password]) 
     
     if u
-      session[:user_id] = u.id
-      session[:user_login] = u.login
+      login_as u
       flash[:notice] = "Welcome back, #{u.login}!" 
       redirect_to user_path(u)
     else

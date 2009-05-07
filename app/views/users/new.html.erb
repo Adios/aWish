@@ -1,0 +1,32 @@
+<% content_for :head do -%>
+  <%= stylesheet_link_tag 'commons/new_and_edit' %>
+<% end %>
+
+<% form_for @user do |f| %>
+  <fieldset>
+    <legend>Resocialization</legend>
+      <%= f.error_messages :header_message => 'Oops!', :message => nil %>
+      <p>
+        <span class="left"><label for="user_login">login: </label></span>
+        <span class="right"><%= f.text_field :login %></span>
+        <span class="clear"></span>
+      </p>
+      <p>
+        <span class="left"><label for="user_email">email: </label></span>
+        <span class="right"><%= f.text_field :email %></span>
+        <span class="clear"></span>
+      </p>
+      <p>
+        <span class="left"><label for="user_password">password: </label></span>
+        <span class="right"><%= f.password_field :password %></span>
+        <span class="clear"></span>
+      </p>
+      <p>
+        <span class="left"><label for="user_password_confirmation">password confirmation: </label></span>
+        <span class="right"><%= f.password_field :password_confirmation %></span>
+        <span class="clear"></span>
+      </p>
+  </fieldset>
+  <span class="right"><%= f.submit edit? ? 'Update' : 'Create', :class => 'submit' %></span>
+  <span class="clear"></span>
+<% end %>

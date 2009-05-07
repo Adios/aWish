@@ -20,19 +20,19 @@ class UserTest < ActiveSupport::TestCase
     u.login = 'alison'
     u.email = 'alison@alison.org'
     #too short
-    u.password = '123' 
+    u.password = u.password_confirmation = '123' 
     assert !u.save     
     assert u.errors.invalid?('password')
     #too long
-    u.password = '12341234123412341234123412341234123412341234123412341234123412341234123412341234'
+    u.password = u.password_confirmation = '1234' * 16 + '1'
     assert !u.save     
     assert u.errors.invalid?('password')
     #empty
-    u.password = ''
+    u.password = u.password_confirmation = ''
     assert !u.save    
     assert u.errors.invalid?('password')
     #ok
-    u.password = 'alison_secure_password'
+    u.password = u.password_confirmation = 'alison_secure_password'
     assert u.save     
     assert u.errors.empty? 
   end
@@ -40,14 +40,14 @@ class UserTest < ActiveSupport::TestCase
   test 'bad logins and bad mails' do
     #check we cant create a user with an invalid username
     u = User.new  
-    u.password = 'alisonisthebest'
+    u.password = u.password_confirmation = 'alisonisthebest'
     u.email = 'alison@alison.org'
     #too short
     u.login = 'x'
     assert !u.save     
     assert u.errors.invalid?('login')
     #too long
-    u.login = 'hugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhugebobhug'
+    u.login = '1234' * 8 + '1'
     assert !u.save     
     assert u.errors.invalid?('login')
     #empty
@@ -74,7 +74,7 @@ class UserTest < ActiveSupport::TestCase
   
   test 'collision' do 
     #check can't create new user with existing username
-    u = User.new :login => 'adios', :password => 'test222', :email => 'adios@la.com'
+    u = User.new :login => 'adios', :password => 'test222', :password_confirmation => 'test222', :email => 'adios@la.com'
     assert !u.save
     assert u.errors.invalid?('login')
     # case-insensitive ?
@@ -94,7 +94,7 @@ class UserTest < ActiveSupport::TestCase
 
   test 'creation' do
     #check create works and we can authenticate after creation
-    u = User.new :login => 'alison', :password => 'alisonisthebest', :email => 'alison@alison.org'
+    u = User.new :login => 'alison', :password => 'alisonisthebest', :password_confirmation => 'alisonisthebest', :email => 'alison@alison.org'
     assert u.save
     assert_equal u, User.authenticate(u.login, u.password)
   end
@@ -103,7 +103,7 @@ class UserTest < ActiveSupport::TestCase
     u = User.new
     u.login = 'alison'
     u.email = 'alison@alison.org'
-    u.password = 'alisonisthebest'
+    u.password = u.password_confirmation = 'alisonisthebest'
     assert u.save
     assert_equal '0c8cba7242f30ddd34aa804356f47245', u.hashed_password
     assert_equal '0c8cba7242f30ddd34aa804356f47245', User.encrypt('alisonisthebest')
@@ -111,7 +111,7 @@ class UserTest < ActiveSupport::TestCase
 
   test 'protected attributes' do
     #check attributes are protected
-    u = User.new :id => 999999, :login => 'alison', :password => 'alisonisthebest', :email => 'alison@alison.org'
+    u = User.new :id => 999999, :login => 'alison', :password_confirmation => 'alisonisthebest', :password => 'alisonisthebest', :email => 'alison@alison.org'
     assert_nil u.id
     assert u.save
     assert_not_equal 999999, u.id

@@ -8,3 +8,6 @@ hr {
 #content a:hover {
     color: #42974d;
 }
+#content fieldset.desire {
+    margin-top: 10px;
+}
