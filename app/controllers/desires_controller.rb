@@ -49,7 +49,7 @@ class DesiresController < ApplicationController
       if @item.save and @desire.save
         format.html { redirect_to(@desire) }
       else
-        format.html { render :action => "new" }
+        format.html { render :new }
       end
     end
   end
@@ -63,7 +63,7 @@ class DesiresController < ApplicationController
         if @item.update_attributes(params[:item]) and @desire.update_attributes(params[:desire])
           format.html { redirect_to(@desire) }
         else
-          format.html { render :action => "edit" }
+          format.html { render :new }
         end
       else
         flash[:notice] = "you must own the resource!"

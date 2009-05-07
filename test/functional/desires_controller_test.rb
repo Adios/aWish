@@ -80,6 +80,12 @@ class DesiresControllerTest < ActionController::TestCase
     end
     assert_response :redirect
     assert_redirected_to desire_path(assigns(:desire))
+    # wrong data
+    assert_no_difference 'Desire.count' do
+      post :create, { :desire => {}, :item => { :name => '' }}, { :user_id => 1 }
+    end
+    assert_response :success
+    assert_equal false, assigns(:item).valid?
   end
   
   test "destroy" do
@@ -119,6 +125,12 @@ class DesiresControllerTest < ActionController::TestCase
     end
     assert_response :redirect
     assert_redirected_to root_url
-    assert flash[:notice]    
+    assert flash[:notice]
+    # logged in but wrong data
+    assert_no_difference 'Desire.count' do
+      put :update, { :id => '1', :item => { :name => '' } }, { :user_id => 1 }
+    end    
+    assert_response :success
+    assert_equal false, assigns(:item).valid?
   end
 end

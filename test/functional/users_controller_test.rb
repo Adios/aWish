@@ -51,7 +51,13 @@ class UsersControllerTest < ActionController::TestCase
   end
   
   test "create" do
-    # test if u r logged as 'adios', create a new user will reset the session
+    # create failed
+    assert_no_difference 'User.count' do
+      post :create, { :user => { :login => 'adios' } }
+    end
+    assert_response :success
+    assert_equal false, assigns(:user).valid?
+    # if 'adios' logged in, he creates a new user, system will reset the current session.
     assert_difference 'User.count' do
       post :create, { :user => { :login => 'alison', :password => 'alisonisthebest', :password_confirmation => 'alisonisthebest', :email => 'alison@alis.org' } }, { :user_id => 1 }
     end
@@ -73,11 +79,17 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :redirect
     assert_redirected_to assigns(:user)
     # not the owner
-    assert_no_difference 'Desire.count' do
+    assert_no_difference 'User.count' do
       put :update, { :id => '1', :user => { :login => 'alison', :password => 'alisonisthebest', :password_confirmation => 'alisonisthebest', :email => 'alison2@alison.org'} }, { :user_id => 2 }
     end
     assert_response :redirect
     assert_redirected_to root_url
     assert flash[:notice]    
+    # the onwer logged in, and enter the wrong data
+    assert_no_difference 'User.count' do
+      put :update, { :id => '1', :user => {} }, { :user_id => 1 }
+    end
+    assert_response :success
+    assert_equal false, assigns(:user).valid?
   end
 end

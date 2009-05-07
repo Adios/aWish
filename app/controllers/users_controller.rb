@@ -50,7 +50,7 @@ class UsersController < ApplicationController
           flash[:notice] = "Update successful!"
           format.html { redirect_to(@user) }
         else
-          format.html { render :edit }
+          format.html { render :new }
         end
       else
         flash[:notice] = "You must own him/her!"
