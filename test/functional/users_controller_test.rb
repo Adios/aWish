@@ -17,9 +17,15 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "show" do
+    # not logged in
     get :show, { :id => '1' }
     assert_response :success
     assert_not_nil assigns(:user)
+    assert_select 'div.action', false
+    # logged in
+    get :show, { :id => '1' }, { :user_id => 1 }
+    assert_response :success
+    assert_select 'div.action'
   end
   
   test "new" do

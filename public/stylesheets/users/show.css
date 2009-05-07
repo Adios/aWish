@@ -1,0 +1,37 @@
+#list {
+    float: right;
+    width: 70%;
+    padding: 20px 0 20px 40px;
+    position: relative;
+}
+
+#panel {
+    padding: 20px 0;
+    border-right: 15px solid #cce8cf;
+    float: left;
+    width: 23%;
+    text-align: center;
+}
+#panel ul {
+    padding-top: 20px;
+}
+#content a {
+    color: #42974d;
+}
+#list ul {
+    padding-top: 20px;
+}
+#list li {
+    line-height: 150%;
+    height: 150%;
+}
+#list hr {
+    border: 1px solid #cce8cf;
+}
+span.price {
+    float: right;
+}
+div.action {
+    position: absolute;
+    right: 0;
+}

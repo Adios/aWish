@@ -12,6 +12,10 @@
     |
     <%= link_to 'delete', @desire, :confirm => 'really?', :method => :delete, :title => "I don't want it anymore!" %>
   </div>
+  <% else %>
+  <div class="action">
+    <%= link_to 'I want it!', want_item_path(@desire.item), :method => :post %>
+  </div>
   <% end %>
 
   <%= render :partial => 'commons/item', :locals => { :item => @desire.item } %>

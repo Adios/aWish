@@ -10,7 +10,7 @@ module ApplicationHelper
   end
   
   def user? user
-    return true if @current_user and user.id == @current_user.id
+    return true if session[:user_id] and user.id == session[:user_id]
     false
   end
 end

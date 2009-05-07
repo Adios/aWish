@@ -33,11 +33,11 @@ class DesiresControllerTest < ActionController::TestCase
     get :show, { :id => '1' }
     assert_response :success
     assert_not_nil assigns(:desire)
-    assert_select 'div.action', false
+    assert_select 'div.action a', 1
     
     get :show, { :id => '1' }, { :user_id => 1 }
     assert_response :success
-    assert_select 'div.action'
+    assert_select 'div.action a', 2
   end
   
   test "new" do
