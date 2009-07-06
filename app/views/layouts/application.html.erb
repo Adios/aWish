@@ -1,36 +1,34 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Desires: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'default', 'utility', 'layout', 'style' %>
-  <%= yield :head -%>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<title>The Desires: <%= controller.action_name %></title>
+	<%= stylesheet_link_tag 'reset', 'layout', 'style' %>
+	<%= yield :head -%>
 </head>
 <body>
-  <div id="wrapper">
-    <div id="header">
-      <h1>Desires</h1>
-      <h2>c o f f e e, t e a, o r ...</h2>
-      <ul>
-        <%= render :partial => 'layouts/authentication' -%>
-      </ul>
-    </div>
+	<div id="wrapper">
+		<div id="header">
+			<ul>
+				<%= render :partial => 'layouts/authentication' -%>
+			</ul>
+		</div>
 
-    <div id="content">
-      <%= yield -%>
-    </div>
+		<div id="content">
+			<%= yield -%>
+		</div>
 
-    <div id="reserved"></div>
-  </div>
+		<div id="reserved"></div>
+	</div>
 
-  <div id="footer">
-    <ul>
-      <li>Copyright © 2009 Adikos. All rights reserved.</li>
-      <li>Terms of Use</li>
-      <li style="border: none">Privacy Policy</li>
-    </ul>
-  </div>
+	<div id="footer">
+		<ul>
+			<li>Copyright © 2009 Adikos. All rights reserved.</li>
+			<li>Terms of Use</li>
+			<li style="border: none">Privacy Policy</li>
+		</ul>
+	</div>
 </body>
 </html>
