@@ -1,24 +1,24 @@
 /* global area tags */
-a:visited	{ color: inherit; }
+a:visited	{ color: #42974d; }
 a:hover		{ text-decoration: underline; }
 ul, li		{ list-style: none; }
-body		{ color: #42974d; background-color: #fff; font-family: Helvetica, verdana, sans-serif; }
-a			{ color: inherit; text-decoration: none; }
+body		{ color: #444; background-color: #fff; font-family: Helvetica, verdana, sans-serif; }
+a			{ color: #42974d; text-decoration: none; }
 
 /* global area utilities */
 span.left	{ float: left; }
 span.right	{ float: right; }
-span.clear: { clear: both; display: block; }
+span.clear 	{ clear: both; display: block; }
 	
 /* global area styles */
 #header ul, #footer ul { 
 	background: #fff url(/images/hr.png) repeat-x scroll 0px center;
-	height: 30px;
+	height: 20px;
 	padding: 0 20px;
 }
 #header li, #footer li { 
 	display: inline; 
-	line-height: 30px; 
+	line-height: 20px; 
 }
 #header li {
 	float: right;
@@ -30,32 +30,9 @@ span.clear: { clear: both; display: block; }
 	font-size: 70%;
 	padding: 0 4px;
 }
-#session_login, #session_password {
-	font-family: Georgia, New York, Times, serif;
-	width: 100px;
-	border: 1px inset #cce8cf;
-	border-right: 3px double #cce8cf;
-	border-bottom: 3px double #cce8cf;
-}
-#session_submit {
-	padding: 1px;
-	border: 1px outset #cce8cf;
-	background-color: #cce8cf;
-	color: #42974d;
-}
-li p.error {
-	position: absolute;
-	top: -25px;
-	font-size: 80%;
-	color: red;
-}
-li span.error {
-	border-left: 3px solid red;
-}
 #content {
-	padding: 10px 5%;
+	margin: 0 20px;
 	font-family: Georgia, New York, Times, serif;
-	color: #555;
-	font-size: 110%;
+	font-size: 120%;
+	position: relative;
 }
-

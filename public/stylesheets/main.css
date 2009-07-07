@@ -1,0 +1,64 @@
+/* overwrite style.css */
+#header						{ background: transparent url(/images/sprite.png) repeat-x scroll 0px top; }
+#header ul,	#footer ul 		{ background-image: none; }
+#header li.session-action 	{ display: none; }
+#footer						{ background: transparent url(/images/sprite_ud.png) repeat-x scroll 0px bottom; }
+#content 					{ margin: 0; }
+
+/* main.css */
+#banner {
+	background: #cce8cf;
+	height: 207px;
+	position: absolute;
+	width: 100%;
+	z-index: 0;
+	top: 0px;
+}
+#container {
+	position: relative;
+	z-index: 1;
+	top: -20px;
+	height: 445px;
+	width: 800px;
+	margin: 0 auto;
+}
+#logo, #session, #topic {
+	position: absolute;
+	z-index: 2;
+}
+#logo {
+	top: 0;
+	border: 1px dotted gray;
+	width: 200px;
+	height: 150px;
+}
+#session {
+	width: 270px;
+	height: 110px;
+	top: 40px;
+	right: 0;
+	font-size: 120%;
+}
+#topic {
+	bottom: 0;
+	width: 100%;
+	border: 1px dotted gray;
+	height: 258px;
+}
+
+#session_login, #session_password {
+	float: right;
+	width: 150px;
+	margin-bottom: 15px;
+	border: 1px solid white;
+	border-top: 1px solid gray;
+	border-left: 1px solid gray;
+}
+#session_submit {
+	width: 80px;
+	background-color: #cce8cf;
+	border: 2px outset #ddf3e0;
+	color: #42974d;
+	padding: 1px;
+	line-height: 26px;
+}

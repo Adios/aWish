@@ -1,0 +1,27 @@
+<% content_for :head do %>
+<%= stylesheet_link_tag 'main' %>
+<% end %>
+
+<div id="banner"></div>
+<div id="container">
+	<div id="logo">Place logo here.</div>
+
+	<div id="session">
+		<% form_for :session, @user, :url => session_path do |f| %>
+		<label for="session[login]">Login:</label>
+		<%= f.text_field :login, :size => 32 %>
+		<span class="clear"></span>
+		<label for="session[password]">Password:</label>
+		<%= f.password_field :password, :size => 64 %>
+		<span class="clear"></span>
+		<div style="float: right;">
+			<%= f.submit 'Login' %>
+			<span style="font-size: 60%;">or <%= link_to 'Signup', new_user_path %></span>
+		</div>
+		<% end %>
+	</div>
+
+	<div id="topic">Place topic here.</div>
+</div>
+
+

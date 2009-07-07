@@ -6,16 +6,12 @@ html, body {
 	min-height: 100%;
 	height: auto !important;
 	height: 100%;
-	margin: 0 auto -60px;
+	margin: 0 auto -40px;
 }
-#footer, #push {
-	height: 60px;
+#footer, #reserved {
+	height: 40px;
 }
 #header {
-	height: 60px;
-	padding-top: 30px;
-	padding-bottom: 10px;
-}
-#content {
-	margin: 0 20px; 
+	height: 40px;
+	padding-top: 20px;
 }

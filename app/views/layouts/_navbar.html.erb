@@ -1,0 +1,10 @@
+<% if logged_in? -%>
+<li><%= link_to 'Logout', session_path, :method => :delete %></li>
+<li style="margin-left: 20px;"><%= link_to session[:user_login], user_path(session[:user_id]) %></li>
+<% else -%>
+<li><%= link_to 'Signup', new_user_path %></li>
+<li style="margin-left: 20px;"><%= link_to 'Login', root_url %></li>
+<% end -%>
+<li><%= link_to 'Desires', desires_path %></li>
+<li><%= link_to 'Items', items_path %></li>
+<li><%= link_to 'People', users_path %></li>

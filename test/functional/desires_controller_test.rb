@@ -10,7 +10,7 @@ class DesiresControllerTest < ActionController::TestCase
     assert_routing({ :method => :delete, :path => '/desires/1' }, { :controller => 'desires', :action => 'destroy', :id => '1' })
     assert_routing({ :method => :put, :path => '/desires/1' }, { :controller => 'desires', :action => 'update', :id => '1' })
     
-    assert_routing '/humans/1/desires', { :controller => 'desires', :action => 'index', :user_id => '1'}
+    assert_routing '/people/1/desires', { :controller => 'desires', :action => 'index', :user_id => '1'}
   end
 
   test "index" do
