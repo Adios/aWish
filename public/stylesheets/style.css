@@ -12,7 +12,7 @@ span.clear 	{ clear: both; display: block; }
 	
 /* global area styles */
 #header ul, #footer ul { 
-	background: #fff url(/images/hr.png) repeat-x scroll 0px center;
+	background: transparent url(/images/hr.png) repeat-x scroll 0px center;
 	height: 20px;
 	padding: 0 20px;
 }
