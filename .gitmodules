@@ -1,0 +1,3 @@
+[submodule "public/javascripts/adijs"]
+	path = public/javascripts/adijs
+	url = git://github.com/Adios/AdiJS.git
