@@ -2,6 +2,8 @@ class MainController < ApplicationController
   # GET /
   def index
     @user = User.new
+    
+    redirect_to user_path(session[:user_id]) if session[:user_id]
   end
     
   # POST /session
