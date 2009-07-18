@@ -41,3 +41,4 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
   config.active_record.timestamped_migrations = false
 end
+ActiveRecord::Base.include_root_in_json = false

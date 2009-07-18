@@ -21,41 +21,33 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    
-    respond_to do |format|
-      format.html
-    end
   end
   
   def create
     @user = User.new(params[:user])
     
-    respond_to do |format|
-      if @user.save
-        login_as @user
-        flash[:notice] = "Happy birthday to you!"
-        format.html { redirect_to(@user) }
-      else
-        format.html { render :new }
-      end
+    if @user.save
+      login_as @user
+      flash[:notice] = "Happy birthday to you!"
+      redirect_to(@user)
+    else
+      render :new
     end
   end
   
   def update
     @user = User.find(params[:id])
     
-    respond_to do |format|
-      if user?(@user)
-        if @user.update_attributes(params[:user])
-          flash[:notice] = "Update successful!"
-          format.html { redirect_to(@user) }
-        else
-          format.html { render :new }
-        end
+    if user?(@user)
+      if @user.update_attributes(params[:user])
+        flash[:notice] = "Update successful!"
+        redirect_to @user
       else
-        flash[:notice] = "You must own him/her!"
-        format.html { redirect_to root_url }
+        render :new
       end
+    else
+      flash[:notice] = "You must own him/her!"
+      redirect_to root_url
     end
   end
 end

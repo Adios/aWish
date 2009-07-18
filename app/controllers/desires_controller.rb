@@ -10,6 +10,9 @@ class DesiresController < ApplicationController
 
     respond_to do |format|
       format.html
+      if not params[:user_id].nil?
+        format.json { render :json => { :code => 200, :mesg => 'success', :data => @desires } }
+      end
     end
   end
   
@@ -35,6 +38,13 @@ class DesiresController < ApplicationController
 
     respond_to do |format|
       format.html
+      format.json do
+        render :json => { 
+           :code => 200,
+           :mesg => 'success',
+           :data => { :desire => @desire, :item => @desire.item, :feedback => @desire.feedback }
+        }
+      end
     end
   end
 
@@ -48,8 +58,10 @@ class DesiresController < ApplicationController
     respond_to do |format|
       if @item.save and @desire.save
         format.html { redirect_to(@desire) }
+        format.json { render :json => { :code => 200, :mesg => 'success', :data => { :desire => @desire, :item => @item } } }
       else
         format.html { render :new }
+        format.json { render :json => { :code => 400, :mesg => 'failure', :data => { :desire => @desire.errors.full_messages, :item => @item.errors.full_messages } } }
       end
     end
   end
@@ -62,12 +74,15 @@ class DesiresController < ApplicationController
         @item = @desire.item
         if @item.update_attributes(params[:item]) and @desire.update_attributes(params[:desire])
           format.html { redirect_to(@desire) }
+          format.json { render :json => { :code => 200, :mesg => 'success', :data => { :desire => params[:desire], :item => params[:item] } } }
         else
           format.html { render :new }
+          format.json { render :json => { :code => 400, :mesg => 'failure', :data => { :desire => @desire.errors.full_messages, :item => @item.errors.full_messages } } }
         end
       else
         flash[:notice] = "you must own the resource!"
         format.html { redirect_to root_url }
+        format.json { render :json => { :code => 400, :mesg => flash[:notice] } }
       end
     end
   end
@@ -79,10 +94,12 @@ class DesiresController < ApplicationController
       if user_owned?(@desire)
         if @desire.destroy
           format.html { redirect_to(user_path(@current_user)) }
+          format.json { render :json => { :code => 200, :mesg => 'success', :data => @desire } }
         end
       else
         flash[:notice] = "you must own the resource!"
         format.html { redirect_to root_url }
+        format.json { render :json => { :code => 400, :mesg => flash[:notice] } }
       end
     end
   end
