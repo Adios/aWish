@@ -1,0 +1,30 @@
+div.panel {
+	width: 25%;
+	margin: 0 5% 0 10%;
+}
+div.wrapper {
+	width: 50%;
+	margin-right: 10%;
+	font-size: 110%;
+	position: relative;
+}
+div.act-bar {
+	width: 24px;
+	position: absolute;
+	top: 1em;
+	left: 100%;
+	border-left: 1px solid #cce8cf;
+}
+#wish-list .price {
+	font-size: 70%;
+	line-height: 110%;
+	height: 110%;
+}
+#wish-list li {
+	padding: 5px 1em;
+	border: 1px solid white;
+	border-bottom-color: #cce8cf;
+	line-height: 110%;
+	height: 110%;
+}
+

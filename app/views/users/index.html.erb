@@ -1,5 +1,5 @@
 <% content_for :head do -%>
-  <%= stylesheet_link_tag 'users/index' %>
+<%= stylesheet_link_tag 'users.css' %>
 <% end %>
 
 <%= @users.map{|u| link_to u.login.capitalize, u, :title => 'Similarity: XX' }.join(', ') %>

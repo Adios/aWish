@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resource :session, :controller => :main, :only => %w(create destroy)
-  map.resources :users, :as => 'people', :except => %(destroy), :path_names => { :new => :being, :edit => :reborn } do |user|
+  map.resources :users, :as => 'people', :except => %(destroy), :path_names => { :new => :being, :edit => :reborn }, :member => { :list => :get } do |user|
     user.resources :desires, :only => %(index)
   end
   map.resources :desires

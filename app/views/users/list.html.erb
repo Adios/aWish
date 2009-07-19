@@ -1,0 +1,17 @@
+<div class="panel left">
+</div>
+<div class="wrapper left">
+	<% if user? @user %>
+	<div class="act-bar"></div>
+	<% end %>
+
+	<ul id="wish-list">
+	<%= render :partial => 'users/entry', :collection => @desires %>
+	</ul>
+</div>
+
+<span class="clear"></span>
+<% content_for :head do %>
+<%= stylesheet_link_tag 'users.css' %>
+<% end %>
+

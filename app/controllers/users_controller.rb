@@ -23,6 +23,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
+  def list
+    @user = User.find(params[:id])
+    @desires = @user.desires
+  end
+  
   def create
     @user = User.new(params[:user])
     

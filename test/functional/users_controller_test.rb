@@ -1,19 +1,25 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
-  test "routing" do
-    assert_routing '/people', { :controller => 'users', :action => 'index' }
-    assert_routing '/people/being', { :controller => 'users', :action => 'new' }
-    assert_routing '/people/1/reborn', { :controller => 'users', :action => 'edit', :id => '1' }
-    assert_routing '/people/1', { :controller => 'users', :action => 'show', :id => '1' }
-    assert_routing({ :method => :post, :path => '/people' }, { :controller => 'users', :action => 'create' })
-    assert_routing({ :method => :put, :path => '/people/1' }, { :controller => 'users', :action => 'update', :id => '1' })
-  end
-
   test "index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:users)
+  end
+  
+  test "list" do
+    # not logged in
+    get :list, { :id => '1' }
+    assert_response :success
+    assert_select 'div.act-bar', false
+    # logged in
+    get :list, { :id => '1' }, { :user_id => 1 }
+    assert_response :success
+    assert_select 'div.act-bar'
+    # not the owner
+    get :list, { :id => '1' }, { :user_id => 2 }
+    assert_response :success
+    assert_select 'div.act-bar', false
   end
 
   test "show" do
@@ -21,11 +27,11 @@ class UsersControllerTest < ActionController::TestCase
     get :show, { :id => '1' }
     assert_response :success
     assert_not_nil assigns(:user)
-    assert_select 'div.action', false
+    assert_select 'ul#menu-bar', false
     # logged in
     get :show, { :id => '1' }, { :user_id => 1 }
     assert_response :success
-    assert_select 'div.action'
+    assert_select 'ul#menu-bar'
   end
   
   test "new" do

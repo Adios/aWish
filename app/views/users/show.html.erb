@@ -1,23 +1,4 @@
+this is a dashboard
 <% content_for :head do %>
-  <%= stylesheet_link_tag 'users/show' %>
+<%= stylesheet_link_tag 'users.css' %>
 <% end %>
-
-<div id="list">
-  <% if user? @user %>
-  <div class="action">
-    <%= link_to 'New', new_desire_path %>
-  </div>
-  <% end %>
-  <ul>
-    <%= render :partial => 'desire', :collection => @user.desires, :spacer_template => 'seprator' %>
-  </ul>
-</div>
-
-<div id="panel">
-  <%= render :partial => 'commons/user', :locals => { :user => @user } %>
-  <% if user? @user %>
-  <%= link_to 'Reborn', edit_user_path(@user) %>
-  <% end %>
-</div>
-
-<span class="clear"></span>

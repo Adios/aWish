@@ -19,9 +19,9 @@ class PublicApiTest < ActionController::IntegrationTest
     get 'desires/1', nil, @header
     assert_response :success
     assert_json_response 200
-    assert @json['data'].has_key? 'item'
-    assert @json['data'].has_key? 'desire'
-    assert @json['data'].has_key? 'feedback'
+    assert @json['data'].has_key?('item')
+    assert @json['data'].has_key?('desire')
+    assert @json['data'].has_key?('feedback')
   end
 
   test "POST /desires" do

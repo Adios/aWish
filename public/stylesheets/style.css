@@ -2,23 +2,24 @@
 a:visited	{ color: #42974d; }
 a:hover		{ text-decoration: underline; }
 ul, li		{ list-style: none; }
-body		{ color: #444; background-color: #fff; font-family: Helvetica, verdana, sans-serif; }
+body		{ color: #444; background-color: #fff; font-family: Lucida Grande, Lucida Sans, Helvetica, Arial, sans-serif; }
 a			{ color: #42974d; text-decoration: none; }
 
 /* global area utilities */
-span.left	{ float: left; }
-span.right	{ float: right; }
-span.clear 	{ clear: both; display: block; }
-	
+.left		{ float: left; }
+.right		{ float: right; }
+.clear		{ clear: both; display: block; }
+
 /* global area styles */
-#header ul, #footer ul { 
+#header ul, #footer ul {
 	background: transparent url(/images/hr.png) repeat-x scroll 0px center;
 	height: 20px;
 	padding: 0 20px;
+	font-weight: bold;
 }
-#header li, #footer li { 
-	display: inline; 
-	line-height: 20px; 
+#header li, #footer li {
+	display: inline;
+	line-height: 20px;
 }
 #header li {
 	float: right;
@@ -31,7 +32,7 @@ span.clear 	{ clear: both; display: block; }
 	padding: 0 4px;
 }
 #content {
-	margin: 0 20px;
+	padding: 1em 20px;
 	font-family: Georgia, New York, Times, serif;
 	font-size: 120%;
 	position: relative;

@@ -13,11 +13,12 @@
 	width: 100%;
 	z-index: 0;
 	top: 0px;
+	left: 0px;
 }
 #container {
 	position: relative;
 	z-index: 1;
-	top: -20px;
+	top: -2em;
 	height: 445px;
 	width: 800px;
 	margin: 0 auto;

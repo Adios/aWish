@@ -11,8 +11,13 @@
 <body>
 	<div id="wrapper">
 		<div id="header">
-			<ul id="navbar">
-				<%= render :partial => 'layouts/navbar' -%>
+			<% if logged_in? %>
+			<ul id="menu-bar" class="left">
+			<%= render :partial => 'layouts/menubar' %>
+			</ul>
+			<% end %>
+			<ul id="navi-bar">
+			<%= render :partial => 'layouts/navbar' %>
 			</ul>
 		</div>
 

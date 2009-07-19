@@ -1,0 +1,4 @@
+<li class="<%= to_class entry.priority, entry.meet %>" title="<%= entry.met_at %>">
+	<%= link_to entry.item.name, desire_path(entry), :class => 'name' %>
+	<span class="price right"><%= entry.item.price %></span>
+</li>
