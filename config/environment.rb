@@ -42,3 +42,4 @@ Rails::Initializer.run do |config|
   config.active_record.timestamped_migrations = false
 end
 ActiveRecord::Base.include_root_in_json = false
+ActionView::Helpers::AssetTagHelper.register_javascript_expansion :defaults => %w(jquery adijs/list)

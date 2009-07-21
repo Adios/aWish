@@ -2,16 +2,26 @@
 </div>
 <div class="wrapper left">
 	<% if user? @user %>
-	<div class="act-bar"></div>
+	<div class="act-bar">
+		<span class="create">1</span>
+		<span class="destroy">2</span>
+		<span class="reorder">3</span>
+	</div>
 	<% end %>
 
 	<ul id="wish-list">
 	<%= render :partial => 'users/entry', :collection => @desires %>
 	</ul>
 </div>
+<div class="status">
+</div>
 
 <span class="clear"></span>
 <% content_for :head do %>
 <%= stylesheet_link_tag 'users.css' %>
+<% javascript_tag do %>
+	_token = 'authenticity_token=' + encodeURIComponent('<%= form_authenticity_token %>');
+<% end %>
+<%= javascript_include_tag 'wishlist' %>
 <% end %>
 

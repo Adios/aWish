@@ -58,7 +58,7 @@ class DesiresController < ApplicationController
     respond_to do |format|
       if @item.save and @desire.save
         format.html { redirect_to(@desire) }
-        format.json { render :json => { :code => 200, :mesg => 'success', :data => { :desire => @desire, :item => @item } } }
+        format.json { render :json => { :code => 200, :mesg => 'success', :data => { :desire => @desire, :item => @item, :path => desire_path(@desire) } } }
       else
         format.html { render :new }
         format.json { render :json => { :code => 400, :mesg => 'failure', :data => { :desire => @desire.errors.full_messages, :item => @item.errors.full_messages } } }
